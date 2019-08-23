@@ -25,6 +25,7 @@ export default class ForumThread extends React.Component {
     this.renderQuestion = this.renderQuestion.bind(this);
     this.getComments = this.getComments.bind(this);
     this.renderComments = this.renderComments.bind(this);
+    this.onLikeClick = this.onLikeClick.bind(this);
   }
 
   async setModalVisible(visible) {
@@ -45,7 +46,25 @@ export default class ForumThread extends React.Component {
     this.setState({ comments });
   }
 
+  async onCommmentLikeClick(commentId) {
+    const { id } = this.props;
+    const response = axios.put(
+      `https://6hqudqyuu6.execute-api.us-east-2.amazonaws.com/develop/forum/comment/like?postId=${id}&id=${commentId}`
+    );
+    console.log(response);
+  }
+
+  async onLikeClick() {
+    const { likes, id, app } = this.props;
+
+    const response = await axios.put(
+      `https://6hqudqyuu6.execute-api.us-east-2.amazonaws.com/develop/forum?id=${id}&appTitle=${app}`
+    );
+    console.log(response);
+  }
+
   renderComments() {
+    const { likes } = this.props;
     return this.state.comments.map((comment) => {
       const app = comment.appTitle;
       const post = comment.comment;
@@ -55,12 +74,23 @@ export default class ForumThread extends React.Component {
             style={styles.avatar}
             source={require('../assets/images/user.png')}
           />
-          <TextInput
-            editable={false}
-            style={styles.forumThreadQuestion}
-            value={post}
-            multiline
-          />
+          <View>
+            <TextInput
+              editable={false}
+              style={styles.forumThreadQuestion}
+              value={post}
+              multiline
+            />
+            <TouchableHighlight
+              style={styles.likeCommentButton}
+              onPress={() => this.onCommmentLikeClick(comment.id)}
+            >
+              <View>
+                <Ionicons name="ios-arrow-up" size={25} color="green" />
+                <Text>{comment.likes || 0}</Text>
+              </View>
+            </TouchableHighlight>
+          </View>
         </View>
       );
     });
@@ -109,10 +139,15 @@ export default class ForumThread extends React.Component {
           </View>
           <View style={styles.forumThreadBottomComntainer}>
             <View style={styles.forumThreadBottomBar}>
-              <View style={styles.likeQuestionButton}>
-                <Ionicons name="ios-thumbs-up" size={45} color="#bce1eb" />
-                <Text>Like This Post</Text>
-              </View>
+              <TouchableHighlight
+                style={styles.likeQuestionButton}
+                onPress={this.onLikeClick}
+              >
+                <View>
+                  <Ionicons name="ios-thumbs-up" size={45} color="#bce1eb" />
+                  <Text>Like This Post</Text>
+                </View>
+              </TouchableHighlight>
               <ForumComment app={app} question={question} postId={id} />
             </View>
           </View>
@@ -124,8 +159,8 @@ export default class ForumThread extends React.Component {
         >
           <View style={styles.forumThreadContainer}>
             <Ionicons name="ios-star" size={24} color="gold" />
-            <Text style={styles.forumThreadLikes}> 45 </Text>
-            <Text style={styles.forumThreadText}> {title}</Text>
+            <Text style={styles.forumThreadLikes}> {likes} </Text>
+            <Text style={styles.forumThreadText}>{title}</Text>
             <View style={styles.forumThreadIconContainer}>
               <Ionicons name="ios-arrow-forward" size={24} color="black" />
             </View>

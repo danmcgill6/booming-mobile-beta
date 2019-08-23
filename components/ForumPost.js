@@ -62,6 +62,7 @@ export default class ForumPost extends React.Component {
   }
 
   render() {
+    const { likes } = this.props;
     return (
       <View>
         <Modal
