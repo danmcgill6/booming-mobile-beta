@@ -85,7 +85,7 @@ export default class ForumThread extends React.Component {
               style={styles.likeCommentButton}
               onPress={() => this.onCommmentLikeClick(comment.id)}
             >
-              <View>
+              <View style={styles.upButtonContainer}>
                 <Ionicons name="ios-arrow-up" size={25} color="green" />
                 <Text>{comment.likes || 0}</Text>
               </View>
@@ -97,7 +97,7 @@ export default class ForumThread extends React.Component {
   }
 
   renderQuestion() {
-    const { question } = this.props;
+    const { question, likes } = this.props;
     return (
       <View style={styles.forumThreadQuestionContainer}>
         <Image
@@ -110,6 +110,15 @@ export default class ForumThread extends React.Component {
           value={question}
           multiline
         />
+        <TouchableHighlight
+          style={styles.likeCommentButton}
+          onPress={() => this.onCommmentLikeClick(comment.id)}
+        >
+          <View style={styles.upButtonContainer}>
+            <Ionicons name="ios-arrow-up" size={25} color="green" />
+            <Text>{likes || 0}</Text>
+          </View>
+        </TouchableHighlight>
       </View>
     );
   }

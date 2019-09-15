@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   homeContainer: {
     backgroundColor: 'transparent',
+    paddingBottom: 95,
     // shadowColor: 'white',
     // shadowOffset: { width: 0, height: 2 },
     // shadowOpacity: 1.1,
@@ -229,6 +230,10 @@ const styles = StyleSheet.create({
   forumThreadIconContainer: {
     position: 'absolute',
     right: 10,
+  },
+  upButtonContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   questionInput: {
@@ -595,6 +600,12 @@ const styles = StyleSheet.create({
     padding: 7,
     maxHeight: 400,
   },
+  singleAppWidgetContainer: {
+    borderRadius: 10,
+    backgroundColor: '#fffef7',
+    padding: 7,
+    maxHeight: 400,
+  },
   singleAppTweetView: {
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.4,
@@ -634,9 +645,12 @@ const styles = StyleSheet.create({
     // fontWeight: 'bold'
   },
   homescreenText: {
-    fontSize: 15,
+    fontSize: 19,
     fontFamily: 'Georgia-Italic',
     lineHeight: 30,
+    padding: 8,
+    color: 'white',
+    marginBottom: 95,
   },
   iosArrow: {
     position: 'absolute',
@@ -686,6 +700,27 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginRight: 6,
+  },
+
+  searchScreenContainer: {
+    flex: 1,
+    backgroundColor: 'white',
+  },
+
+  loginContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#ecf0f1',
+  },
+  loginInput: {
+    width: 200,
+    height: 44,
+    padding: 10,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: 'black',
+    marginBottom: 10,
   },
 });
 
