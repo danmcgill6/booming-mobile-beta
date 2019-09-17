@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   homeContainer: {
     backgroundColor: 'transparent',
-    paddingBottom: 95,
+    paddingBottom: 95
     // shadowColor: 'white',
     // shadowOffset: { width: 0, height: 2 },
     // shadowOpacity: 1.1,
@@ -13,11 +13,11 @@ const styles = StyleSheet.create({
     flex: 1,
     height: undefined,
     width: undefined,
-    alignSelf: 'stretch',
+    alignSelf: 'stretch'
   },
   homeContentContainer: {
     backgroundColor: 'white',
-    flex: 1,
+    flex: 1
 
     // paddingTop:10,
   },
@@ -26,42 +26,42 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     marginBottom: 10,
     height: 60,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   appsScreenContainer: {
-    backgroundColor: '#CBD4C2',
+    backgroundColor: '#CBD4C2'
   },
   appListTitle: {
-    fontSize: 22,
+    fontSize: 22
   },
   appListContainer: {
-    padding: 10,
+    padding: 10
   },
   articleContainer: {
     height: 85,
-    width: 65,
+    width: 65
   },
   articlePageContainer: {
-    flexDirection: 'row',
+    flexDirection: 'row'
   },
   categoryCard: {
     width: 125,
-    height: 130,
+    height: 130
   },
   articleBannerImage: {
     height: 250,
-    flex: 1,
+    flex: 1
   },
   articlePreviewImage: {
     height: 150,
-    width: 140,
+    width: 140
   },
   articleText: {
     alignSelf: 'center',
     fontSize: 15,
     // fontWeight: 'bold',
     marginTop: 2,
-    color: 'black',
+    color: 'black'
   },
   // cardWrapper:{
   //   shadowColor: '#000',
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     paddingBottom: 15,
     marginRight: 0,
     borderColor: 'white',
-    borderRightWidth: 0,
+    borderRightWidth: 0
   },
   card: {
     shadowOffset: { width: 0, height: 0 },
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 5,
     borderBottomRightRadius: 5,
     borderTopLeftRadius: 5,
-    borderTopRightRadius: 5,
+    borderTopRightRadius: 5
   },
   articleCard: {
     shadowOffset: { width: 0, height: 0 },
@@ -109,13 +109,13 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 5,
     borderBottomRightRadius: 5,
     borderTopLeftRadius: 5,
-    borderTopRightRadius: 5,
+    borderTopRightRadius: 5
   },
   twitDisplayerBackButton: {
     position: 'absolute',
     left: 25,
     top: 45,
-    zIndex: 99,
+    zIndex: 99
   },
   dialog: {
     position: 'absolute',
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     width: 1000,
     justifyContent: 'center',
     alignItems: 'center',
-    alignSelf: 'center',
+    alignSelf: 'center'
   },
   singleTweetContent: {
     position: 'absolute',
@@ -133,11 +133,11 @@ const styles = StyleSheet.create({
     height: 250,
     borderRadius: 10,
     zIndex: 100,
-    backgroundColor: 'white',
+    backgroundColor: 'white'
   },
   singleTweetContainer: {
     width: 300,
-    height: 250,
+    height: 250
   },
   singleTweetTopContainer: {
     display: 'flex',
@@ -145,44 +145,44 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderBottomWidth: 1,
-    height: 100,
+    height: 100
   },
   singleTweetText: {
     color: 'black',
-    fontSize: 16,
+    fontSize: 16
   },
   singleTweetTextContainer: {
-    padding: 10,
+    padding: 10
   },
   tweetPreviewtext: {
-    color: 'grey',
+    color: 'grey'
   },
   tweetDisplayer: {
     height: 1000,
-    overflow: 'visible',
+    overflow: 'visible'
   },
   articlePreviewText: {
     color: 'white',
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   },
   singleTweetuserName: {
     alignSelf: 'center',
-    marginLeft: 10,
+    marginLeft: 10
   },
   featuredArticles: {
     marginTop: 10,
     marginBottom: 10,
     borderColor: 'white',
-    paddingBottom: 12,
+    paddingBottom: 12
   },
   categoryContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   categoryText: {
     fontSize: 19,
-    color: '#000',
+    color: '#000'
   },
 
   table: {
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 5,
     borderBottomRightRadius: 5,
     borderTopLeftRadius: 5,
-    borderTopRightRadius: 5,
+    borderTopRightRadius: 5
   },
 
   forumInputContainer: {
@@ -209,13 +209,13 @@ const styles = StyleSheet.create({
     paddingTop: 75,
     justifyContent: 'flex-start',
     alignItems: 'center',
-    backgroundColor: '#bac9cc',
+    backgroundColor: '#bac9cc'
   },
 
   forumPostTitle: {
     fontSize: 25,
     color: 'white',
-    marginTop: 15,
+    marginTop: 15
   },
 
   titleInput: {
@@ -224,16 +224,16 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     backgroundColor: 'white',
     width: 300,
-    borderRadius: 10,
+    borderRadius: 10
   },
 
   forumThreadIconContainer: {
     position: 'absolute',
-    right: 10,
+    right: 10
   },
   upButtonContainer: {
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
 
   questionInput: {
@@ -243,7 +243,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     width: 300,
     height: 200,
-    borderRadius: 10,
+    borderRadius: 10
   },
 
   forumPostSubmitText: {
@@ -251,7 +251,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingLeft: 10,
     paddingRight: 10,
-    fontSize: 15,
+    fontSize: 15
   },
 
   forumPostSubmit: {
@@ -259,13 +259,13 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     backgroundColor: '#07b524',
     borderRadius: 10,
-    marginTop: 30,
+    marginTop: 30
   },
 
   forumPostErrortText: {
     marginTop: 30,
     fontSize: 20,
-    color: 'red',
+    color: 'red'
   },
 
   forumThreadContainer: {
@@ -277,11 +277,11 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderBottomWidth: 1,
     borderColor: '#e8e6e1',
-    paddingLeft: 7,
+    paddingLeft: 7
   },
 
   forumThreadLikes: {
-    marginLeft: 4,
+    marginLeft: 4
   },
 
   forumThreadQuestion: {
@@ -301,7 +301,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     borderBottomLeftRadius: 15,
     borderBottomRightRadius: 15,
-    borderTopRightRadius: 15,
+    borderTopRightRadius: 15
   },
 
   forumThreadBottomComntainer: {
@@ -310,7 +310,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     height: 85,
-    backgroundColor: 'white',
+    backgroundColor: 'white'
   },
 
   commentButton: {
@@ -318,44 +318,45 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     right: 15,
-    top: 10,
+    top: 10
   },
   likeQuestionButton: {
     alignItems: 'center',
     justifyContent: 'center',
     position: 'absolute',
     left: 15,
-    top: 10,
+    top: 10
   },
 
   forumThreadQuestionContainer: {
     flexDirection: 'row',
     width: 325,
-    minHeight: 100,
+    minHeight: 100
   },
   avatar: {
     width: 50,
-    height: 50,
+    height: 50
   },
 
   forumThreadContentContainer: {
     flex: 1,
     paddingTop: 75,
     justifyContent: 'flex-start',
-    alignItems: 'center',
+    //alignItems: 'center',
     backgroundColor: '#bac9cc',
+    marginBottom: 85
   },
 
   likeCommentButton: {
     position: 'absolute',
     right: -25,
-    top: 25,
+    top: 25
   },
 
   forumThreadText: {
     fontSize: 15,
     marginLeft: 7,
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   },
 
   tableRowContainer: {
@@ -378,7 +379,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderBottomWidth: 1,
     borderColor: '#e4efe9',
-    marginBottom: 1,
+    marginBottom: 1
   },
 
   forumContainer: {
@@ -390,25 +391,25 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.4,
     shadowRadius: 3,
     borderRadius: 10,
-    borderColor: '#2e5489',
+    borderColor: '#2e5489'
   },
 
   appPlaceText: {
     fontSize: 20,
     color: 'white',
-    fontFamily: 'Georgia',
+    fontFamily: 'Georgia'
   },
 
   thumbnailContainer: {
     borderRadius: 5,
-    marginLeft: 5,
+    marginLeft: 5
   },
   thumbnail: {
     height: 50,
     width: 50,
     borderColor: 'white',
     borderWidth: 1,
-    borderRadius: 10,
+    borderRadius: 10
   },
   topTenHeader: {
     fontSize: 25,
@@ -416,7 +417,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Georgia-Bold',
     fontWeight: 'bold',
     marginBottom: 15,
-    marginTop: 15,
+    marginTop: 15
   },
   aboutUsText: {
     marginTop: 15,
@@ -428,73 +429,73 @@ const styles = StyleSheet.create({
     fontSize: 20,
     paddingLeft: 10,
     paddingRight: 10,
-    fontFamily: 'Georgia',
+    fontFamily: 'Georgia'
   },
   tweets: {
     fontFamily: 'Avenir-Book',
     fontSize: 15,
     color: 'white',
-    marginLeft: 5,
+    marginLeft: 5
   },
 
   twitterData: {
     position: 'absolute',
     right: 40,
-    flexDirection: 'row',
+    flexDirection: 'row'
   },
 
   tableText: {
     fontFamily: 'Avenir-Book',
     fontSize: 21,
     fontWeight: 'bold',
-    color: '#12092f',
+    color: '#12092f'
   },
   tweetView: {
-    height: 30,
+    height: 30
   },
   tweetsContainer: {
     flex: 1,
     borderColor: '#12092f',
     borderWidth: 3,
     marginTop: 3,
-    borderRadius: 25,
+    borderRadius: 25
   },
   appTitle: {
     marginLeft: 15,
     fontSize: 20,
     color: 'white',
 
-    fontFamily: 'Georgia',
+    fontFamily: 'Georgia'
   },
   appTitleSmall: {
     marginLeft: 15,
     fontSize: 17,
     color: 'white',
-    fontFamily: 'Georgia',
+    fontFamily: 'Georgia'
   },
   hotOneHundredHeaderContainer: {
     display: 'flex',
     marginTop: 10,
     justifyContent: 'center',
-    flexDirection: 'row',
+    flexDirection: 'row'
   },
   hotOneHundredHeader: {
     fontFamily: 'Didot-Italic',
     fontSize: 35,
-    color: 'white',
+    color: 'white'
   },
   singleAppScreenContainer: {
     backgroundColor: '#fffef7',
     flexDirection: 'column',
     justifyContent: 'flex-start',
-    padding: 10,
+    padding: 10
     // backgroundColor: '#fffef7'
   },
   SingleAppImage: {
     height: 110,
     width: 110,
     alignSelf: 'center',
-    borderRadius: 55,
+    borderRadius: 55
     // backgroundColor: 'black'
   },
   SingleAppTopRow: {
@@ -508,7 +509,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     borderColor: 'white',
     borderWidth: 2,
-    borderRadius: 7,
+    borderRadius: 7
   },
 
   singleAppTitle: {
@@ -518,7 +519,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'black',
     alignSelf: 'center',
-    marginLeft: 15,
+    marginLeft: 15
   },
   singleAppDescriptionText: {
     marginTop: 13,
@@ -530,7 +531,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     paddingLeft: 10,
     paddingRight: 10,
-    fontFamily: 'Georgia',
+    fontFamily: 'Georgia'
   },
   singleAppDescription: {
     marginTop: 20,
@@ -541,7 +542,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.4,
     shadowRadius: 3,
     borderRadius: 10,
-    borderColor: '#2e5489',
+    borderColor: '#2e5489'
     // borderWidth:4
   },
   singleAppDescriptionHeader: {
@@ -550,7 +551,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginLeft: 15,
     fontWeight: 'bold',
-    color: 'black',
+    color: 'black'
   },
   singleAppTweetsHeader: {
     fontSize: 25,
@@ -559,7 +560,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginLeft: 15,
     fontWeight: 'bold',
-    color: 'black',
+    color: 'black'
   },
   forumHeader: {
     fontSize: 25,
@@ -567,7 +568,7 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     fontWeight: 'bold',
     color: 'black',
-    alignSelf: 'center',
+    alignSelf: 'center'
   },
 
   webViewContainer: {
@@ -584,7 +585,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.8,
     shadowRadius: 2,
     backgroundColor: 'white',
-    marginBottom: 15,
+    marginBottom: 15
   },
   webViewHeaderText: {
     fontSize: 35,
@@ -592,19 +593,19 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginBottom: 10,
     marginLeft: 10,
-    alignSelf: 'center',
+    alignSelf: 'center'
   },
   singleAppTweetsContainer: {
     borderRadius: 10,
     backgroundColor: '#fffef7',
     padding: 7,
-    maxHeight: 400,
+    maxHeight: 400
   },
   singleAppWidgetContainer: {
     borderRadius: 10,
     backgroundColor: '#fffef7',
     padding: 7,
-    maxHeight: 400,
+    maxHeight: 400
   },
   singleAppTweetView: {
     shadowOffset: { width: 0, height: 2 },
@@ -612,11 +613,11 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
     backgroundColor: '#fffef7',
     // borderRadius: 10,
-    marginTop: 30,
+    marginTop: 30
   },
   singleAppTwitterLogoContainer: {
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   headerContainer: {
     display: 'flex',
@@ -625,7 +626,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     color: 'white',
     backgroundColor: 'transparent',
-    height: 65,
+    height: 65
   },
   featuredArticlesText: {
     fontSize: 25,
@@ -635,13 +636,13 @@ const styles = StyleSheet.create({
     borderBottomColor: '#fcfcfc',
     borderBottomWidth: 1,
     fontFamily: 'Georgia-Bold',
-    marginBottom: 7,
+    marginBottom: 7
   },
   headerText: {
     fontSize: 35,
     color: 'white',
     fontFamily: 'Cochin',
-    fontWeight: '500',
+    fontWeight: '500'
     // fontWeight: 'bold'
   },
   homescreenText: {
@@ -650,24 +651,24 @@ const styles = StyleSheet.create({
     lineHeight: 30,
     padding: 8,
     color: 'white',
-    marginBottom: 95,
+    marginBottom: 95
   },
   iosArrow: {
     position: 'absolute',
-    right: 15,
+    right: 15
   },
   articleDisplayerContainer: {
     flexWrap: 'wrap',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    alignSelf: 'center',
+    alignSelf: 'center'
   },
   articlePageHeader: {
     fontSize: 35,
     color: 'black',
     fontFamily: 'ArialHebrew-Bold',
-    alignSelf: 'center',
+    alignSelf: 'center'
   },
   singleTweetProfImage: {
     borderRadius: 35,
@@ -675,43 +676,43 @@ const styles = StyleSheet.create({
     top: 15,
     left: 30,
     width: 70,
-    height: 70,
+    height: 70
   },
 
   singleAppTweetCard: {
     paddingTop: 0,
     maxHeight: 350,
-    overflow: 'hidden',
+    overflow: 'hidden'
   },
   forumTop: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   forumSearch: {
     flex: 3,
-    marginRight: 10,
+    marginRight: 10
   },
   forumStar: {},
   forumListStyle: {
     flexDirection: 'row',
-    flex: 1,
+    flex: 1
   },
   forumIcon: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginRight: 6,
+    marginRight: 6
   },
 
   searchScreenContainer: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: 'white'
   },
 
   loginContainer: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#ecf0f1',
+    backgroundColor: '#ecf0f1'
   },
   loginInput: {
     width: 200,
@@ -720,8 +721,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: 'black',
-    marginBottom: 10,
-  },
+    marginBottom: 10
+  }
 });
 
 export default styles;

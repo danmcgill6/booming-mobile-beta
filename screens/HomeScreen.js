@@ -15,7 +15,7 @@ class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      topTen: [],
+      topTen: []
     };
     this.update = this.update.bind(this);
   }
@@ -28,14 +28,14 @@ class HomeScreen extends React.Component {
       fontWeight: 'bold',
       fontSize: 36,
       color: 'black',
-      fontFamily: 'Cochin',
+      fontFamily: 'Cochin'
     },
     tabBarOptions: {
       activeTintColor: '#293462',
       labelStyle: {
-        fontSize: 12,
-      },
-    },
+        fontSize: 12
+      }
+    }
   };
 
   async componentDidMount() {
@@ -55,7 +55,7 @@ class HomeScreen extends React.Component {
     return (
       <LinearGradient
         colors={['#13547a', '#80d0c7']}
-        style={{ alignItems: 'center', paddingBottom: 95 }}
+        style={{ alignItems: 'center', paddingBottom: 45 }}
       >
         <Header title="Booming  Apps" />
 
@@ -65,17 +65,14 @@ class HomeScreen extends React.Component {
         >
           <ArticleSlider />
 
-          <Table
-            topTen={this.state.topTen}
-            navigation={this.props.navigation}
-          />
+          <Table topTen={this.state.topTen} navigation={this.props.navigation} />
           <View style={{ paddingLeft: 8, paddingRight: 8 }}>
             <Header title="Find us on Twitter!" />
 
             <TwitterWidget />
           </View>
 
-          <Header title="About Us" />
+          {/* <Header title="About Us" />
           <Text style={styles.homescreenText} onPress={this.update}>
             Booming apps is a platform dedicated to find the worlds up and
             coming apps within the crowded app store. We pull in data from
@@ -86,18 +83,18 @@ class HomeScreen extends React.Component {
             submit it to us. After review we will add your app to our system and
             you will be able to see all of twitter analytics we use for your
             app.
-          </Text>
+          </Text> */}
         </ScrollView>
       </LinearGradient>
     );
   }
 }
-const mapDispatchToProps = (dispatch) => ({
-  setToken: (token) => dispatch(login(token)),
+const mapDispatchToProps = dispatch => ({
+  setToken: token => dispatch(login(token))
 });
 
-const mapStateToProps = (state) => ({
-  user: state.user,
+const mapStateToProps = state => ({
+  user: state.user
 });
 
 export default connect(

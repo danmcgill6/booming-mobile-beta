@@ -1,17 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import {
-  View,
-  Text,
-  Image,
-  TouchableHighlight,
-  Modal,
-  ScrollView,
-  TextInput,
-} from 'react-native';
+import { View, Text, Image, TouchableHighlight, Modal, ScrollView, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import styles from '../assets/stylesheet';
 import ForumComment from './ForumComment';
+import { width } from '../constants/Layout';
 
 export default class ForumThread extends React.Component {
   constructor(props) {
@@ -20,7 +13,7 @@ export default class ForumThread extends React.Component {
     this.state = {
       modalVisible: false,
       tweets: [],
-      comments: [],
+      comments: []
     };
     this.renderQuestion = this.renderQuestion.bind(this);
     this.getComments = this.getComments.bind(this);
@@ -65,22 +58,14 @@ export default class ForumThread extends React.Component {
 
   renderComments() {
     const { likes } = this.props;
-    return this.state.comments.map((comment) => {
+    return this.state.comments.map(comment => {
       const app = comment.appTitle;
       const post = comment.comment;
       return (
         <View style={styles.forumThreadQuestionContainer}>
-          <Image
-            style={styles.avatar}
-            source={require('../assets/images/user.png')}
-          />
+          <Image style={styles.avatar} source={require('../assets/images/user.png')} />
           <View>
-            <TextInput
-              editable={false}
-              style={styles.forumThreadQuestion}
-              value={post}
-              multiline
-            />
+            <TextInput editable={false} style={styles.forumThreadQuestion} value={post} multiline />
             <TouchableHighlight
               style={styles.likeCommentButton}
               onPress={() => this.onCommmentLikeClick(comment.id)}
@@ -98,18 +83,11 @@ export default class ForumThread extends React.Component {
 
   renderQuestion() {
     const { question, likes } = this.props;
+    console.log(question);
     return (
       <View style={styles.forumThreadQuestionContainer}>
-        <Image
-          style={styles.avatar}
-          source={require('../assets/images/user.png')}
-        />
-        <TextInput
-          editable={false}
-          style={styles.forumThreadQuestion}
-          value={question}
-          multiline
-        />
+        <Image style={styles.avatar} source={require('../assets/images/user.png')} />
+        <TextInput editable={false} style={styles.forumThreadQuestion} value={question} multiline />
         <TouchableHighlight
           style={styles.likeCommentButton}
           onPress={() => this.onCommmentLikeClick(comment.id)}
@@ -143,15 +121,14 @@ export default class ForumThread extends React.Component {
             <Ionicons name="ios-arrow-back" size={24} color="black" />
           </TouchableHighlight>
           <View style={styles.forumThreadContentContainer}>
-            {this.renderQuestion()}
-            {this.renderComments()}
+            <ScrollView contentContainerStyle={{ alignItems: 'center' }}>
+              {this.renderQuestion()}
+              {this.renderComments()}
+            </ScrollView>
           </View>
           <View style={styles.forumThreadBottomComntainer}>
             <View style={styles.forumThreadBottomBar}>
-              <TouchableHighlight
-                style={styles.likeQuestionButton}
-                onPress={this.onLikeClick}
-              >
+              <TouchableHighlight style={styles.likeQuestionButton} onPress={this.onLikeClick}>
                 <View>
                   <Ionicons name="ios-thumbs-up" size={45} color="#bce1eb" />
                   <Text>Like This Post</Text>
