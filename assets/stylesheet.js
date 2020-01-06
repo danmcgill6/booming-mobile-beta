@@ -2,12 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   homeContainer: {
-    backgroundColor: 'transparent',
-    paddingBottom: 95
-    // shadowColor: 'white',
-    // shadowOffset: { width: 0, height: 2 },
-    // shadowOpacity: 1.1,
-    // shadowRadius: 2,
+    backgroundColor: '#FCFFF7'
   },
   headerImage: {
     flex: 1,
@@ -29,7 +24,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   appsScreenContainer: {
-    backgroundColor: '#CBD4C2'
+    backgroundColor: 'white'
   },
   appListTitle: {
     fontSize: 22
@@ -173,7 +168,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     borderColor: 'white',
-    paddingBottom: 12
+    paddingBottom: 12,
+    marginTop: 25
   },
   categoryContainer: {
     flexDirection: 'row',
@@ -342,7 +338,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 75,
     justifyContent: 'flex-start',
-    //alignItems: 'center',
+    // alignItems: 'center',
     backgroundColor: '#bac9cc',
     marginBottom: 85
   },
@@ -362,24 +358,24 @@ const styles = StyleSheet.create({
   tableRowContainer: {
     flex: 1,
     padding: 3,
-    height: 57,
+    height: 55,
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    // shadowColor: 'black',
-    // shadowOffset: { width: 4, height: 4 },
-    // shadowOpacity: .4,
-    // shadowRadius: 3,
-    paddingLeft: 0,
+    shadowColor: 'white',
+    shadowOffset: { width: 1, height: 1 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    paddingLeft: 5,
     paddingRight: 0,
     paddingBottom: 3,
     paddingTop: 3,
     marginHorizontal: 10,
     backgroundColor: 'transparent',
-    borderRadius: 5,
-    borderBottomWidth: 1,
-    borderColor: '#e4efe9',
-    marginBottom: 1
+    borderRadius: 25,
+    borderWidth: 1,
+    borderColor: '#D5896F',
+    marginBottom: 10
   },
 
   forumContainer: {
@@ -396,7 +392,7 @@ const styles = StyleSheet.create({
 
   appPlaceText: {
     fontSize: 20,
-    color: 'white',
+    color: 'black',
     fontFamily: 'Georgia'
   },
 
@@ -434,7 +430,7 @@ const styles = StyleSheet.create({
   tweets: {
     fontFamily: 'Avenir-Book',
     fontSize: 15,
-    color: 'white',
+    color: 'black',
     marginLeft: 5
   },
 
@@ -448,7 +444,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Avenir-Book',
     fontSize: 21,
     fontWeight: 'bold',
-    color: '#12092f'
+    color: 'black'
   },
   tweetView: {
     height: 30
@@ -463,14 +459,14 @@ const styles = StyleSheet.create({
   appTitle: {
     marginLeft: 15,
     fontSize: 20,
-    color: 'white',
+    color: 'black',
 
     fontFamily: 'Georgia'
   },
   appTitleSmall: {
     marginLeft: 15,
-    fontSize: 17,
-    color: 'white',
+    fontSize: 15,
+    color: 'black',
     fontFamily: 'Georgia'
   },
   hotOneHundredHeaderContainer: {
@@ -622,11 +618,13 @@ const styles = StyleSheet.create({
   headerContainer: {
     display: 'flex',
     justifyContent: 'center',
-    marginTop: 20,
+    borderBottomColor: '#381D2A',
+    paddingTop: 35,
     alignItems: 'center',
-    color: 'white',
-    backgroundColor: 'transparent',
-    height: 65
+    color: '#50d890',
+    backgroundColor: '#FCFFF7',
+    height: 95,
+    fontFamily: 'Al Nile',
   },
   featuredArticlesText: {
     fontSize: 25,
@@ -636,11 +634,12 @@ const styles = StyleSheet.create({
     borderBottomColor: '#fcfcfc',
     borderBottomWidth: 1,
     fontFamily: 'Georgia-Bold',
-    marginBottom: 7
+    marginBottom: 7,
+
   },
   headerText: {
     fontSize: 35,
-    color: 'white',
+    color: 'black',
     fontFamily: 'Cochin',
     fontWeight: '500'
     // fontWeight: 'bold'
@@ -722,6 +721,13 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'black',
     marginBottom: 10
+  },
+  headerFirstLetter: {
+    fontSize: 35,
+    color: '#D5896F',
+    marginBottom: 10,
+    marginLeft: 10,
+    alignSelf: 'center'
   }
 });
 

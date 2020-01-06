@@ -51,7 +51,7 @@ export default class TweetsModal extends React.Component {
               this.setModalVisible(!this.state.modalVisible);
             }}
           >
-            <Ionicons name="ios-arrow-back" size={24} color="white" />
+            <Ionicons name="ios-arrow-back" size={24} color="black" />
           </TouchableHighlight>
           <View
             style={{
@@ -68,7 +68,11 @@ export default class TweetsModal extends React.Component {
             this.setModalVisible(true);
           }}
         >
-          <Text style={styles.tweets}> {this.props.tweetCount} </Text>
+          <Text style={styles.tweets}>
+            {' '}
+            {this.props.tweetCount}
+            {' '}
+          </Text>
         </TouchableHighlight>
       </View>
     );

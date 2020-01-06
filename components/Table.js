@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import {
+  View, Text, Image, TouchableOpacity
+} from 'react-native';
 import { Card, ListItem, Button } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import styles from '../assets/stylesheet';
@@ -9,10 +11,10 @@ import TweetsModal from './tweetsModal';
 const Table = (props) => {
   const topTen = props.topTen
     ? props.topTen.sort((a, b) => {
-        if (a.tweetCount > b.tweetCount) return -1;
-        if (a.tweetCount < b.tweetCount) return 1;
-        if (a.tweetCount === b.tweetCount) return 0;
-      })
+      if (a.tweetCount > b.tweetCount) return -1;
+      if (a.tweetCount < b.tweetCount) return 1;
+      if (a.tweetCount === b.tweetCount) return 0;
+    })
     : [];
 
   return (
@@ -21,14 +23,16 @@ const Table = (props) => {
         <TouchableOpacity
           key={i}
           containerStyle={{ borderRadius: 10 }}
-          onPress={() =>
-            props.navigation.push('SingleApp', {
-              app,
-            })
+          onPress={() => props.navigation.push('SingleApp', {
+            app,
+          })
           }
         >
           <View key={i} style={styles.tableRowContainer}>
-            <Text style={styles.appPlaceText}>#{i + 1}</Text>
+            <Text style={styles.appPlaceText}>
+#
+              {i + 1}
+            </Text>
 
             <View style={styles.thumbnailContainer}>
               <Image
@@ -47,11 +51,11 @@ const Table = (props) => {
               {app.title}
             </Text>
             <View style={styles.twitterData}>
-              <Ionicons name="logo-twitter" size={24} color="white" />
+              <Ionicons name="logo-twitter" size={24} color="black" />
               <TweetsModal tweetCount={app.tweetCount} app={app.title} />
             </View>
             <View style={styles.iosArrow}>
-              <Ionicons name="ios-arrow-forward" size={24} color="white" />
+              <Ionicons name="ios-arrow-forward" size={24} color="black" />
             </View>
           </View>
         </TouchableOpacity>

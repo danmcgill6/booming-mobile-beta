@@ -1,5 +1,7 @@
 import React from 'react';
-import { ScrollView, Text, View, WebView } from 'react-native';
+import {
+  ScrollView, Text, View, WebView
+} from 'react-native';
 import axios from 'axios';
 
 import { LinearGradient } from 'expo-linear-gradient';
@@ -53,10 +55,7 @@ class HomeScreen extends React.Component {
 
   render() {
     return (
-      <LinearGradient
-        colors={['#13547a', '#80d0c7']}
-        style={{ alignItems: 'center', paddingBottom: 45 }}
-      >
+      <View>
         <Header title="Booming  Apps" />
 
         <ScrollView
@@ -85,7 +84,7 @@ class HomeScreen extends React.Component {
             app.
           </Text> */}
         </ScrollView>
-      </LinearGradient>
+      </View>
     );
   }
 }
