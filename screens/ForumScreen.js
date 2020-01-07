@@ -7,12 +7,20 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { connect } from 'react-redux';
 import Header from '../components/Header';
+import ForumList from '../components/ForumList';
 import { login } from '../redux';
 
 '';
 
 class ForumScreen extends React.Component {
   /**
+   * can we make this work for all apss and single app?
+   *
+   *
+   * take in appId if no App id pull top 30 fourm threads
+   *
+   * how do we store top 30...? cache...?
+   *
      * 1. display the app names and number of questions asked within their forum page
      * 2. create search functionality, filter list based on search
     */
@@ -46,50 +54,7 @@ class ForumScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Header title="Forum" />
-
-        <FlatList
-          data={[
-            { key: 'Gachalife', posts: 69 },
-            { key: 'Angry Birds', posts: 69 },
-            { key: 'Facebook', posts: 69 },
-            { key: 'TikTok', posts: 1000 },
-            { key: 'Snapchat', posts: 69 },
-            { key: 'Instagram', posts: 69 },
-            { key: 'John', posts: 69 },
-            { key: 'Jillian', posts: 69 },
-            { key: 'Jimmy', posts: 69 },
-            { key: 'Julie', posts: 69 },
-          ]}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              style={styles.itemContainer}
-              onPress={() => props.navigation.push('SingleForum', {
-                item,
-              })}
-            >
-
-              <View style={styles.thumbnailContainer}>
-                <Image
-                  style={styles.thumbnail}
-                  source={{
-                    uri:
-                    'https://s3.us-east-2.amazonaws.com/booming-apps/new-ios-store.png',
-                  }}
-                />
-              </View>
-              <Text style={styles.itemText}>{item.key}</Text>
-              <Text style={styles.postNumber}>
-                {item.posts}
-                {' '}
-                Posts
-              </Text>
-              <View style={styles.iosArrow}>
-                <Ionicons name="ios-arrow-forward" size={24} color="black" />
-              </View>
-            </TouchableOpacity>
-          )
-              }
-        />
+        <ForumList type="apps" navigation={props.navigation} />
       </View>
     );
   }

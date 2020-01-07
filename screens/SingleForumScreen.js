@@ -8,13 +8,14 @@ import { Ionicons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
 import { login } from '../redux';
+import ForumList from '../components/ForumList';
 
-'';
 
 class SingleForumScreen extends React.Component {
   /**
-     * 1. display the app names and number of questions asked within their forum page
+     * 1. display a banner background with app image infront of it
      * 2. create search functionality, filter list based on search
+     * 3. display top 20 questions
     */
   constructor(props) {
     super(props);
@@ -44,7 +45,12 @@ class SingleForumScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Hello World</Text>
+        <View style={styles.bannerContainer}>
+          <Text>Hello World</Text>
+        </View>
+        <View style={styles.questions}>
+          <ForumList type="posts" />
+        </View>
       </View>
 
     );
@@ -64,31 +70,20 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 76
   },
-  itemContainer: {
+  bannerContainer: {
     paddingTop: 15,
     paddingBottom: 15,
     paddingLeft: 10,
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    borderBottomColor: 'black',
-    borderBottomWidth: 1,
-  },
-  thumbnailContainer: {
-    borderRadius: 5,
-    marginLeft: 5
-  },
-  thumbnail: {
-    height: 50,
-    width: 50,
-    marginRight: 10,
-    borderColor: 'white',
+    borderColor: 'black',
     borderWidth: 1,
-    borderRadius: 10
   },
-  iosArrow: {
-    position: 'absolute',
-    right: 10
-
+  questions: {
+    borderColor: 'black',
+    borderWidth: 1,
+    flex: 2
   }
 });
 
