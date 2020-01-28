@@ -13,7 +13,6 @@ export default class ForumThread extends React.Component {
     super(props);
 
     this.state = {
-      modalVisible: false,
       tweets: [],
       comments: []
     };
@@ -23,22 +22,9 @@ export default class ForumThread extends React.Component {
     this.onLikeClick = this.onLikeClick.bind(this);
   }
 
-  async setModalVisible(visible) {
-    this.setState({ modalVisible: visible });
-  }
 
   async componentDidMount() {
     await this.getComments();
-  }
-
-  async getComments() {
-    const { app, id } = this.props;
-    const response = await axios.get(
-      `https://6hqudqyuu6.execute-api.us-east-2.amazonaws.com/develop/forum/comments?postId=${id}`
-    );
-    const comments = response.data;
-    console.log(comments);
-    this.setState({ comments });
   }
 
   async onCommmentLikeClick(commentId) {
@@ -51,11 +37,20 @@ export default class ForumThread extends React.Component {
 
   async onLikeClick() {
     const { likes, id, app } = this.props;
-
     const response = await axios.put(
       `https://6hqudqyuu6.execute-api.us-east-2.amazonaws.com/develop/forum?id=${id}&appTitle=${app}`
     );
     console.log(response);
+  }
+
+  async getComments() {
+    const { app, id } = this.props;
+    const response = await axios.get(
+      `https://6hqudqyuu6.execute-api.us-east-2.amazonaws.com/develop/forum/comments?postId=${id}`
+    );
+    const comments = response.data;
+    console.log(comments);
+    this.setState({ comments });
   }
 
   renderComments() {
@@ -110,56 +105,35 @@ export default class ForumThread extends React.Component {
 
     return (
       <View>
-        <Modal
-          animationType="slide"
-          transparent={false}
-          visible={this.state.modalVisible}
-          onRequestClose={() => {}}
-        >
-          <TouchableHighlight
-            style={styles.twitDisplayerBackButton}
-            onPress={() => {
-              this.setModalVisible(!this.state.modalVisible);
-            }}
-          >
-            <Ionicons name="ios-arrow-back" size={24} color="black" />
-          </TouchableHighlight>
-          <View style={styles.forumThreadContentContainer}>
-            <ScrollView contentContainerStyle={{ alignItems: 'center' }}>
-              {this.renderQuestion()}
-              {this.renderComments()}
-            </ScrollView>
+        <View style={styles.forumThreadContentContainer}>
+          <ScrollView contentContainerStyle={{ alignItems: 'center' }}>
+            {this.renderQuestion()}
+            {this.renderComments()}
+          </ScrollView>
+        </View>
+        <View style={styles.forumThreadBottomComntainer}>
+          <View style={styles.forumThreadBottomBar}>
+            <TouchableHighlight style={styles.likeQuestionButton} onPress={this.onLikeClick}>
+              <View>
+                <Ionicons name="ios-thumbs-up" size={45} color="#bce1eb" />
+                <Text>Like This Post</Text>
+              </View>
+            </TouchableHighlight>
+            <ForumComment app={app} question={question} postId={id} />
           </View>
-          <View style={styles.forumThreadBottomComntainer}>
-            <View style={styles.forumThreadBottomBar}>
-              <TouchableHighlight style={styles.likeQuestionButton} onPress={this.onLikeClick}>
-                <View>
-                  <Ionicons name="ios-thumbs-up" size={45} color="#bce1eb" />
-                  <Text>Like This Post</Text>
-                </View>
-              </TouchableHighlight>
-              <ForumComment app={app} question={question} postId={id} />
-            </View>
+        </View>
+        <View style={styles.forumThreadContainer}>
+          <Ionicons name="ios-star" size={24} color="gold" />
+          <Text style={styles.forumThreadLikes}>
+            {' '}
+            {likes}
+            {' '}
+          </Text>
+          <Text style={styles.forumThreadText}>{title}</Text>
+          <View style={styles.forumThreadIconContainer}>
+            <Ionicons name="ios-arrow-forward" size={24} color="black" />
           </View>
-        </Modal>
-        <TouchableHighlight
-          onPress={() => {
-            this.setModalVisible(true);
-          }}
-        >
-          <View style={styles.forumThreadContainer}>
-            <Ionicons name="ios-star" size={24} color="gold" />
-            <Text style={styles.forumThreadLikes}>
-              {' '}
-              {likes}
-              {' '}
-            </Text>
-            <Text style={styles.forumThreadText}>{title}</Text>
-            <View style={styles.forumThreadIconContainer}>
-              <Ionicons name="ios-arrow-forward" size={24} color="black" />
-            </View>
-          </View>
-        </TouchableHighlight>
+        </View>
       </View>
     );
   }

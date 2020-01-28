@@ -11,19 +11,17 @@ import ForumList from '../components/ForumList';
 import { login } from '../redux';
 
 '';
-
-class ForumScreen extends React.Component {
-  /**
+/**
    * can we make this work for all apss and single app?
    *
-   *
+   * SOULOUTION:
    * take in appId if no App id pull top 30 fourm threads
-   *
    * how do we store top 30...? cache...?
    *
-     * 1. display the app names and number of questions asked within their forum page
-     * 2. create search functionality, filter list based on search
-    */
+   * 1. display the app names and number of questions asked within their forum page
+   * 2. create search functionality, filter list based on search
+   */
+class ForumScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

@@ -1,11 +1,13 @@
 import React from 'react';
-import { ScrollView, StyleSheet, ImageBackground } from 'react-native';
+import {
+  ScrollView, StyleSheet, ImageBackground, View, Text
+} from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
-import { View, Text } from 'react-native';
+
 import styles from '../assets/stylesheet';
 
 const ArticleDisplayer = (props) => {
-  this.onCLick = function() {};
+  this.onCLick = function () {};
   const data = [
     {
       title: '2019/01/01',
@@ -18,7 +20,7 @@ const ArticleDisplayer = (props) => {
     },
     {
       title: '2019/01/08',
-      imageUrl: require('../assets/images/trending.png'),
+      Url: require('../assets/images/trending.png'),
       backgroundTheme: 'light',
       style: {
         color: 'white',
