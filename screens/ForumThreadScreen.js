@@ -7,7 +7,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { connect } from 'react-redux';
 import Header from '../components/Header';
-import ForumList from '../components/Common/List';
+import BoomingFlatList from '../components/Common/List';
 import { login } from '../redux';
 
 '';
@@ -58,7 +58,7 @@ class ForumThreadScreen extends React.Component {
             source={require('../assets/images/appBanner.jpg')}
           />
         </View>
-        <ForumList type="apps" navigation={props.navigation} />
+        <BoomingFlatList type="apps" navigation={props.navigation} />
       </View>
     );
   }

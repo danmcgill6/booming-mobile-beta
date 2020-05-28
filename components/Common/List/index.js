@@ -14,7 +14,7 @@ import renderApps from './RenderFunctions/RenderApps';
 import renderForumPosts from './RenderFunctions/RenderForumPosts';
 
 
-class ForumList extends React.Component {
+class BoomingFlatList extends React.Component {
   /*
   *
   * dynamically display forum questions and apps
@@ -143,4 +143,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ForumList);
+)(BoomingFlatList);

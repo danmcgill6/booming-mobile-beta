@@ -2,7 +2,9 @@ const axios = require('axios');
 
 
 function fetchFactory(method, type, successType, failureType) {
-  return async (url, dispatch, data = {}) => {
+  return async ({
+    url, dispatch, urlData = {}, reduxData = {}
+  }) => {
     // Initiate loading state
     dispatch({
       type
@@ -13,14 +15,15 @@ function fetchFactory(method, type, successType, failureType) {
       const response = await axios({
         method,
         url,
-        ...data && { ...data }
+        ...urlData && { ...urlData }
       });
       const responseData = response.data;
-      console.log('REDUX DATA:::', data);
+      console.log('REDUX RESPONSE DATA:::', responseData);
       // Update payload in reducer on success
+      const payload = Object.keys(reduxData).length ? reduxData : responseData;
       dispatch({
         type: successType,
-        payload: responseData,
+        payload,
       });
     } catch (err) {
       // Update error in reducer on failure

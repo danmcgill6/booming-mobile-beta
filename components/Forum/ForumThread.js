@@ -43,10 +43,13 @@ class ForumThread extends React.Component {
     this.onLikeClick = this.onLikeClick.bind(this);
   }
 
-  async componentDidMount() {
-    const { id, dispatch } = this.props;
-    const url = `${FORUM_COMMENTS_BASE_URL}?postId=${id}`;
-    this.props.fetchForumComments(url, dispatch).then(_ => this.setState({ loading: false }));
+  // Cant use componentDidMount here due to the fact its a modal, state was overriding
+  async componentDidUpdate(prevProps, prevState) {
+    if (!prevState.modalVisible && this.state.modalVisible) {
+      const { id, dispatch } = this.props;
+      const url = `${FORUM_COMMENTS_BASE_URL}?postId=${id}`;
+      this.props.fetchForumComments({ url, dispatch }).then(_ => this.setState({ loading: false }));
+    }
   }
 
   async onCommmentLikeClick(commentId) {
@@ -60,12 +63,11 @@ class ForumThread extends React.Component {
     });
     const url = `${FORUM_LIKE_BASE_URL}?postId=${id}&id=${commentId}`;
 
-    this.props.updateForumComments(
+    this.props.updateForumComments({
       url,
       dispatch,
-      updatedComments
-    );
-    // dispatch update with new array ?
+      reduxData: updatedComments
+    });
   }
 
   async onLikeClick() {
@@ -82,6 +84,7 @@ class ForumThread extends React.Component {
 
   renderComments() {
     const { likes, question, forumComments } = this.props;
+    console.log('forumComments', forumComments);
     return forumComments.map((comment) => {
       const app = comment.appTitle;
       const post = comment.comment;
@@ -176,23 +179,18 @@ class ForumThread extends React.Component {
             </ScrollView>
           </View>
           <View>
-            <LinearGradient
-              colors={['#23aa8f', '#1c6373']}
-              style={styles.forumThreadBottomComntainer}
-            >
-              <View style={styles.forumThreadBottomBar}>
-                <TouchableHighlight
-                  style={styles.likeQuestionButton}
-                  onPress={this.onLikeClick}
-                >
-                  <View>
-                    <Ionicons name="ios-thumbs-up" size={45} color="black" />
-                    <Text>Like This Post</Text>
-                  </View>
-                </TouchableHighlight>
-                <ForumComment app={app} question={question} postId={id} />
-              </View>
-            </LinearGradient>
+            <View style={styles.forumThreadBottomBar}>
+              <TouchableHighlight
+                style={styles.likeQuestionButton}
+                onPress={this.onLikeClick}
+              >
+                <View>
+                  <Ionicons name="ios-thumbs-up" size={45} color="black" />
+                  <Text>Like This Post</Text>
+                </View>
+              </TouchableHighlight>
+              <ForumComment app={app} question={question} postId={id} />
+            </View>
           </View>
         </Modal>
 
@@ -222,7 +220,7 @@ class ForumThread extends React.Component {
 const localStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FCFFF7',
+    backgroundColor: 'white',
   },
   itemText: {
     fontSize: 18,

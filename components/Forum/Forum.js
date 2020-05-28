@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import {
   View, Text,
 } from 'react-native';
-import ForumList from '../Common/List';
+import BoomingFlatList from '../Common/List';
 import styles from '../../assets/stylesheet';
 import ForumPost from './ForumPost';
 
@@ -33,7 +33,7 @@ export default class Forum extends React.Component {
         <View style={styles.forumTop}>
           <ForumPost app={app.title} />
         </View>
-        <ForumList type="posts" appTitle={app.title} />
+        <BoomingFlatList type="posts" appTitle={app.title} />
       </View>
     );
   }

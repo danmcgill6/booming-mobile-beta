@@ -8,24 +8,11 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { connect } from 'react-redux';
 import { login } from '../redux';
-import ForumList from '../components/Common/List';
+import BoomingFlatList from '../components/Common/List';
 import Header from '../components/Header';
 
 
 class SingleForumScreen extends React.Component {
-  /**
-     * Pass type posts and the appId or name into forum list to get correct results
-     * 1. display a banner background with app image infront of it
-     * 2. create search functionality, filter list based on search
-     * 3. display top 20 questions
-     *
-     * THOUGHTS:
-     * display single post screen through modal or screen?
-     * Its also displayed in the single app screen and built in as a modal..?
-     * Can we re use???
-     * Extract code that displays post into a component and use that component in a screen and a modal
-    */
-
   static navigationOptions = {
     headerTransparent: true,
     headerTintColor: '#fff',
@@ -72,17 +59,8 @@ class SingleForumScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Header title="Angry Birds" />
-
-        {/* <View style={styles.bannerContainer}>
-          <ImageBackground
-            style={styles.bannerImage}
-            source={require('../assets/images/appBanner.jpg')}
-          >
-            <Text>Loading...</Text>
-          </ImageBackground>
-        </View> */}
         <View style={styles.questions}>
-          <ForumList data={posts} type="posts" title="Gacha Life" navigation={navigation} />
+          <BoomingFlatList data={posts} type="posts" title="Gacha Life" navigation={navigation} />
         </View>
       </View>
     );

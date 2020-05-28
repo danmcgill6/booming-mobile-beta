@@ -6,7 +6,7 @@ import {
 import { connect } from 'react-redux';
 import { fetchForumApps } from '../redux/reducers/forum/actions';
 import Header from '../components/Header';
-import ForumList from '../components/Common/List';
+import BoomingFlatList from '../components/Common/List';
 import { login } from '../redux';
 import { TOP_TEN_API_ENDPOINT } from '../constants';
 
@@ -45,7 +45,7 @@ class ForumScreen extends React.Component {
   async componentDidMount() {
     const { dispatch } = this.props;
     // eslint-disable-next-line react/destructuring-assignment
-    await this.props.fetchForumApps(TOP_TEN_API_ENDPOINT, dispatch);
+    await this.props.fetchForumApps({ url: TOP_TEN_API_ENDPOINT, dispatch });
   }
 
 
@@ -54,7 +54,7 @@ class ForumScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Header title="Forum" />
-        <ForumList data={props.forumApps} type="apps" navigation={props.navigation} />
+        <BoomingFlatList data={props.forumApps} type="apps" navigation={props.navigation} />
       </View>
     );
   }
