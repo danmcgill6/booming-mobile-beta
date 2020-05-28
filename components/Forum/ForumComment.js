@@ -9,9 +9,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { Card, ListItem, Button } from 'react-native-elements';
-import styles from '../assets/stylesheet';
-import TweetDisplayer from './TweetDisplayer';
+import styles from '../../assets/stylesheet';
 
 export default class ForumComment extends React.Component {
   constructor(props) {
@@ -79,7 +77,7 @@ export default class ForumComment extends React.Component {
               <Text style={styles.forumPostTitle}> Reply </Text>
               <TextInput
                 style={styles.questionInput}
-                onChangeText={(text) => this.setState({ comment: text })}
+                onChangeText={text => this.setState({ comment: text })}
                 value={this.state.reply}
                 placeholder="Put your question here"
                 multiline
@@ -104,7 +102,7 @@ export default class ForumComment extends React.Component {
           }}
         >
           <View style={styles.commentButton}>
-            <Ionicons name="ios-add-circle-outline" size={45} color="green" />
+            <Ionicons name="ios-add-circle-outline" size={45} color="black" />
             <Text> Add a Reply</Text>
           </View>
         </TouchableHighlight>

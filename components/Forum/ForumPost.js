@@ -1,5 +1,7 @@
-import React from 'react';
-import axios from 'axios';
+import React from "react";
+import axios from "axios";
+import { reduxForm, Field } from "redux-form";
+
 import {
   View,
   Text,
@@ -7,21 +9,19 @@ import {
   Modal,
   TextInput,
   TouchableOpacity,
-} from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { Card, ListItem, Button } from 'react-native-elements';
-import styles from '../assets/stylesheet';
-import TweetDisplayer from './TweetDisplayer';
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import styles from "../../assets/stylesheet";
 
-export default class ForumPost extends React.Component {
+class ForumPost extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       modalVisible: false,
-      title: '',
-      question: '',
-      errorText: '',
+      title: "",
+      question: "",
+      errorText: "",
     };
 
     this.submitPost = this.submitPost.bind(this);
@@ -37,27 +37,27 @@ export default class ForumPost extends React.Component {
       const { title } = this.state;
 
       if (!title.length) {
-        this.setState({ errorText: 'Please provide a title for your post' });
+        this.setState({ errorText: "Please provide a title for your post" });
         return;
       }
 
       if (!question.length) {
-        this.setState({ errorText: 'Please provide a question for your post' });
+        this.setState({ errorText: "Please provide a question for your post" });
         return;
       }
 
       await axios.post(
-        'https://6hqudqyuu6.execute-api.us-east-2.amazonaws.com/develop/forum',
+        "https://6hqudqyuu6.execute-api.us-east-2.amazonaws.com/develop/forum",
         {
           post: question,
           title,
-          appTitle: 'Gacha Life',
-          userName: 'Test',
+          appTitle: "Gacha Life",
+          userName: "Test",
         }
       );
     } catch (error) {
-      console.log('ERROR', error);
-      this.setState({ errorText: 'Oops! Something went wrong. ' });
+      console.log("ERROR", error);
+      this.setState({ errorText: "Oops! Something went wrong. " });
     }
   }
 
@@ -121,3 +121,6 @@ export default class ForumPost extends React.Component {
     );
   }
 }
+
+
+export default reduxForm({ form: 'ForumPost' })(ForumPost);

@@ -1,12 +1,14 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { View, Text, Image } from 'react-native';
-import { List, ListItem, FlatList, Card } from 'react-native-elements';
+import {
+  ScrollView, View, Text, Image
+} from 'react-native';
+
+
 import { Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
 import styles from '../assets/stylesheet';
-import TweetDisplayer from '../components/TweetDisplayer';
-import Forum from '../components/Forum';
+import TweetDisplayer from '../components/Twitter/TweetDisplayer';
+import Forum from '../components/Forum/Forum';
 
 export default class AppsScreen extends React.Component {
   constructor(props) {

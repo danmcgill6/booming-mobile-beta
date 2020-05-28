@@ -4,9 +4,8 @@ import {
   View, Text, Image, TouchableHighlight, Modal, ScrollView, TextInput
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import styles from '../assets/stylesheet';
+import styles from '../../assets/stylesheet';
 import ForumComment from './ForumComment';
-import { width } from '../constants/Layout';
 
 export default class ForumThread extends React.Component {
   constructor(props) {
@@ -60,7 +59,6 @@ export default class ForumThread extends React.Component {
       const post = comment.comment;
       return (
         <View style={styles.forumThreadQuestionContainer}>
-          <Image style={styles.avatar} source={require('../assets/images/user.png')} />
           <View>
             <TextInput editable={false} style={styles.forumThreadQuestion} value={post} multiline />
             <TouchableHighlight
@@ -83,7 +81,6 @@ export default class ForumThread extends React.Component {
     console.log(question);
     return (
       <View style={styles.forumThreadQuestionContainer}>
-        <Image style={styles.avatar} source={require('../assets/images/user.png')} />
         <TextInput editable={false} style={styles.forumThreadQuestion} value={question} multiline />
         <TouchableHighlight
           style={styles.likeCommentButton}

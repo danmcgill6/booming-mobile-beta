@@ -1,13 +1,8 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import axios from 'axios';
-import CategoryDisplayer from '../components/CategoryDisplayer';
-import DisplayApps from '../components/DisplayApps';
-import styles from '../assets/stylesheet';
-import Header from '../components/Header';
 import { SearchBar } from 'react-native-elements';
+import styles from '../assets/stylesheet';
 
 export default class AppsScreen extends React.Component {
   constructor(props) {
@@ -26,9 +21,11 @@ export default class AppsScreen extends React.Component {
       fontWeight: 'bold',
     },
   };
+
   updateSearch = (search) => {
     this.setState({ search });
   };
+
   async componentDidMount() {}
 
   render() {
@@ -40,7 +37,7 @@ export default class AppsScreen extends React.Component {
           placeholder="Type Here..."
           onChangeText={this.updateSearch}
           value={search}
-          lightTheme={true}
+          lightTheme
         />
       </View>
     );

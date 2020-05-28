@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {
-  Text, ScrollView, StyleSheet, View
+  StyleSheet, View
 } from 'react-native';
 import { Button } from 'react-native-elements';
-import { ImagePicker, Permissions, Constants } from 'expo';
+import { ImagePicker, Permissions } from 'expo';
 import axios from 'axios';
 
 export default class ImageUploader extends Component {

@@ -1,14 +1,11 @@
 import React from 'react';
-import { Button, Text, View, TextInput } from 'react-native';
+import {
+  Button, Text, View, TextInput
+} from 'react-native';
 import axios from 'axios';
 
-import { LinearGradient } from 'expo-linear-gradient';
 import { connect } from 'react-redux';
-import Table from '../components/Table';
-import ArticleSlider from '../components/ArticleSlider';
-import Header from '../components/Header';
 import styles from '../assets/stylesheet';
-import TwitterWidget from '../components/twitterWidget';
 
 class LoginScreen extends React.Component {
   static navigationOptions = {
@@ -54,13 +51,13 @@ class LoginScreen extends React.Component {
       <View style={styles.loginContainer}>
         <TextInput
           value={username}
-          onChangeText={(username) => this.setState({ username })}
+          onChangeText={username => this.setState({ username })}
           placeholder="Username"
           style={styles.loginInput}
         />
         <TextInput
           value={password}
-          onChangeText={(password) => this.setState({ password })}
+          onChangeText={password => this.setState({ password })}
           placeholder="Password"
           secureTextEntry
           style={styles.loginInput}
@@ -81,11 +78,11 @@ class LoginScreen extends React.Component {
     );
   }
 }
-const mapDispatchToProps = (dispatch) => ({
-  setToken: (token) => dispatch(login(token)),
+const mapDispatchToProps = dispatch => ({
+  setToken: token => dispatch(login(token)),
 });
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   user: state.user,
 });
 

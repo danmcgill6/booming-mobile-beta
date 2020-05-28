@@ -2,13 +2,10 @@ import React from 'react';
 import axios from 'axios';
 import { Ionicons } from '@expo/vector-icons';
 import {
-  View, Text, Image, TouchableOpacity
+  View, Text,
 } from 'react-native';
-import {
-  Card, ListItem, Button, SearchBar, List
-} from 'react-native-elements';
-import ForumList from './ForumList';
-import styles from '../assets/stylesheet';
+import ForumList from '../Common/List';
+import styles from '../../assets/stylesheet';
 import ForumPost from './ForumPost';
 
 

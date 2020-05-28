@@ -1,17 +1,16 @@
 import React from 'react';
 import {
-  ScrollView, StyleSheet, ImageBackground, View, Text
+  ScrollView, ImageBackground, View, Text
 } from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
 
-import styles from '../assets/stylesheet';
+import styles from '../../assets/stylesheet';
 
 const ArticleDisplayer = (props) => {
   this.onCLick = function () {};
   const data = [
     {
       title: '2019/01/01',
-      imageUrl: require('../assets/images/trending.png'),
+      imageUrl: require('../../assets/images/puzzle.jpg'),
       backgroundTheme: 'light',
       style: {
         color: 'white',
@@ -20,7 +19,7 @@ const ArticleDisplayer = (props) => {
     },
     {
       title: '2019/01/08',
-      Url: require('../assets/images/trending.png'),
+      Url: require('../../assets/images/puzzle.jpg'),
       backgroundTheme: 'light',
       style: {
         color: 'white',
@@ -29,7 +28,7 @@ const ArticleDisplayer = (props) => {
     },
     {
       title: '2019/01/15',
-      imageUrl: require('../assets/images/trending.png'),
+      imageUrl: require('../../assets/images/puzzle.jpg'),
       backgroundTheme: 'dark',
       style: {
         color: 'black',
@@ -38,7 +37,7 @@ const ArticleDisplayer = (props) => {
     },
     {
       title: '2019/01/22',
-      imageUrl: require('../assets/images/trending.png'),
+      imageUrl: require('../../assets/images/puzzle.jpg'),
       backgroundTheme: 'dark',
       style: {
         color: 'white',
@@ -46,8 +45,8 @@ const ArticleDisplayer = (props) => {
       },
     },
     {
-      title: '2019/01/29',
-      imageUrl: require('../assets/images/trending.png'),
+      title: '2Why we think our app is good for disabled children',
+      imageUrl: require('../../assets/images/puzzle.jpg'),
       style: {
         color: 'white',
         fontWeight: 'bold',
@@ -55,7 +54,7 @@ const ArticleDisplayer = (props) => {
     },
     {
       title: '2019/02/06',
-      imageUrl: require('../assets/images/trending.png'),
+      imageUrl: require('../../assets/images/puzzle.jpg'),
       backgroundTheme: 'light',
       style: {
         color: 'white',
@@ -64,7 +63,7 @@ const ArticleDisplayer = (props) => {
     },
     {
       title: '2019/02/13',
-      imageUrl: require('../assets/images/trending.png'),
+      imageUrl: require('../../assets/images/puzzle.jpg'),
       backgroundTheme: 'light',
       style: {
         color: 'white',
@@ -73,7 +72,7 @@ const ArticleDisplayer = (props) => {
     },
     {
       title: '2019/02/20',
-      imageUrl: require('../assets/images/trending.png'),
+      imageUrl: require('../../assets/images/puzzle.jpg'),
       backgroundTheme: 'dark',
       style: {
         color: 'black',
@@ -82,7 +81,7 @@ const ArticleDisplayer = (props) => {
     },
     {
       title: '2019/02/27',
-      imageUrl: require('../assets/images/trending.png'),
+      imageUrl: require('../../assets/images/puzzle.jpg'),
       backgroundTheme: 'dark',
       style: {
         color: 'white',
@@ -91,7 +90,7 @@ const ArticleDisplayer = (props) => {
     },
     {
       title: '2019/03/04',
-      imageUrl: require('../assets/images/trending.png'),
+      imageUrl: require('../../assets/images/puzzle.jpg'),
       style: {
         color: 'white',
         fontWeight: 'bold',

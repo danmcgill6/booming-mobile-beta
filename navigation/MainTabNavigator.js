@@ -127,10 +127,13 @@ export default createBottomTabNavigator(
         fontSize: 12,
       },
       style: {
-        backgroundColor: '#04395E',
+        backgroundColor: '#4d16b5',
         borderTopWidth: 0,
         height: 55,
         paddingBottom: 5,
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.5,
+        shadowRadius: 4,
       },
     },
   }

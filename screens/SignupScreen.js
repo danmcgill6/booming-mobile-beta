@@ -1,8 +1,10 @@
 import React from 'react';
-import { Button, Text, View, TextInput } from 'react-native';
+import {
+  Button, Text, View, TextInput,
+  AsyncStorage
+} from 'react-native';
 import axios from 'axios';
-import { AsyncStorage } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+
 import { connect } from 'react-redux';
 import styles from '../assets/stylesheet';
 import { login } from '../redux/reducers/user';
@@ -41,7 +43,9 @@ class SignupScreen extends React.Component {
   }
 
   async onSignup() {
-    const { username, password, email, firstName, lastName } = this.state;
+    const {
+      username, password, email, firstName, lastName
+    } = this.state;
     const validated = this.validate(
       username,
       password,
@@ -120,38 +124,38 @@ class SignupScreen extends React.Component {
       <View style={styles.loginContainer}>
         <TextInput
           value={this.state.firstName}
-          onChangeText={(firstName) => this.setState({ firstName })}
-          placeholder={'First Name'}
+          onChangeText={firstName => this.setState({ firstName })}
+          placeholder="First Name"
           style={styles.loginInput}
         />
         <TextInput
           value={this.state.lastName}
-          onChangeText={(lastName) => this.setState({ lastName })}
-          placeholder={'Last name'}
+          onChangeText={lastName => this.setState({ lastName })}
+          placeholder="Last name"
           style={styles.loginInput}
         />
         <TextInput
           value={this.state.email}
-          onChangeText={(email) => this.setState({ email })}
-          placeholder={'Email'}
+          onChangeText={email => this.setState({ email })}
+          placeholder="Email"
           style={styles.loginInput}
         />
         <TextInput
           value={this.state.username}
-          onChangeText={(username) => this.setState({ username })}
-          placeholder={'Username'}
+          onChangeText={username => this.setState({ username })}
+          placeholder="Username"
           style={styles.loginInput}
         />
         <TextInput
           value={this.state.password}
-          onChangeText={(password) => this.setState({ password })}
-          placeholder={'Password'}
-          secureTextEntry={true}
+          onChangeText={password => this.setState({ password })}
+          placeholder="Password"
+          secureTextEntry
           style={styles.loginInput}
         />
 
         <Button
-          title={'SIgnup!'}
+          title="SIgnup!"
           style={styles.loginInput}
           onPress={this.onSignup.bind(this)}
         />
@@ -160,11 +164,11 @@ class SignupScreen extends React.Component {
     );
   }
 }
-const mapDispatchToProps = (dispatch) => ({
-  setToken: (token) => dispatch(login(token)),
+const mapDispatchToProps = dispatch => ({
+  setToken: token => dispatch(login(token)),
 });
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   user: state.user,
 });
 

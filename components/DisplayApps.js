@@ -1,8 +1,7 @@
 import React from 'react';
 import {
-  View, Text, TouchableHighlight, Image, ScrollView, TouchableOpacity
+  View, Text, Image, ScrollView, TouchableOpacity
 } from 'react-native';
-import { List, ListItem } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import styles from '../assets/stylesheet';
 

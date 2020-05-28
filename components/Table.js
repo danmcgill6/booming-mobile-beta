@@ -3,10 +3,9 @@ import axios from 'axios';
 import {
   View, Text, Image, TouchableOpacity
 } from 'react-native';
-import { Card, ListItem, Button } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import styles from '../assets/stylesheet';
-import TweetsModal from './tweetsModal';
+import TweetsModal from './Twitter/tweetsModal';
 
 const Table = (props) => {
   const topTen = props.topTen
@@ -44,6 +43,7 @@ const Table = (props) => {
               />
             </View>
             <Text
+              numberOfLines={1}
               style={
                 app.title.length > 15 ? styles.appTitleSmall : styles.appTitle
               }

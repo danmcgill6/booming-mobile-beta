@@ -1,14 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 import {
-  View, Text, ImageBackground, TouchableOpacity
+  View, Text, ImageBackground
 } from 'react-native';
-import { Card, ListItem, Button } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import { ScrollView } from 'react-native-gesture-handler';
-import createIconSetFromFontello from '@expo/vector-icons/createIconSetFromFontello';
-import TweetsModal from './tweetsModal';
-import styles from '../assets/stylesheet';
+import styles from '../../assets/stylesheet';
 
 
 export default class ArticleSlider extends React.Component {
@@ -20,7 +17,7 @@ export default class ArticleSlider extends React.Component {
     const articles = [
       {
         title: 'Action/Adventure',
-        imageUrl: require('../assets/images/trending.png'),
+        imageUrl: require('../../assets/images/trending.png'),
         backgroundTheme: 'light',
         style: {
           color: 'white',
@@ -29,7 +26,7 @@ export default class ArticleSlider extends React.Component {
       },
       {
         title: 'Simple',
-        imageUrl: require('../assets/images/trending.png'),
+        imageUrl: require('../../assets/images/trending.png'),
         backgroundTheme: 'light',
         style: {
           color: 'white',
@@ -39,7 +36,7 @@ export default class ArticleSlider extends React.Component {
       },
       {
         title: 'Shooters',
-        imageUrl: require('../assets/images/trending.png'),
+        imageUrl: require('../../assets/images/trending.png'),
         backgroundTheme: 'dark',
         style: {
           color: 'black',
@@ -49,7 +46,7 @@ export default class ArticleSlider extends React.Component {
       },
       {
         title: 'Versus',
-        imageUrl: require('../assets/images/trending.png'),
+        imageUrl: require('../../assets/images/trending.png'),
         backgroundTheme: 'dark',
         style: {
           color: 'white',
@@ -58,7 +55,7 @@ export default class ArticleSlider extends React.Component {
       },
       {
         title: 'Puzzle',
-        imageUrl: require('../assets/images/trending.png'),
+        imageUrl: require('../../assets/images/trending.png'),
         style: {
           color: 'white',
           fontWeight: 'bold'
@@ -68,6 +65,24 @@ export default class ArticleSlider extends React.Component {
     return (
       <View>
         <View style={styles.featuredArticles}>
+          <View style={{
+            display: 'flex',
+            paddingLeft: 15,
+            borderBottomColor: '#381D2A',
+            alignItems: 'left',
+            color: '#50d890',
+            marginBottom: 7,
+            backgroundColor: 'transparent',
+            fontFamily: 'Al Nile'
+          }}
+          >
+            <Text style={{
+              fontSize: 25, color: '#5b302b', fontFamily: 'Cochin', fontWeight: '500'
+            }}
+            >
+          Featured Articles
+            </Text>
+          </View>
           <ScrollView style={styles.articlePageContainer} horizontal>
             {
               articles.map((app, i) => {
@@ -82,7 +97,7 @@ export default class ArticleSlider extends React.Component {
                     <ImageBackground
                       imageStyle={{ borderRadius: 5 }}
                       style={styles.articlePreviewImage}
-                      source={app.imageUrl}
+                      // source={app.imageUrl}
                       key={i}
                     />
                     {/* <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}> */}

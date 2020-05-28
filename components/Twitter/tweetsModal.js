@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import { Card, ListItem, Button } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
-import styles from '../assets/stylesheet';
+import styles from '../../assets/stylesheet';
 import TweetDisplayer from './TweetDisplayer';
 
 export default class TweetsModal extends React.Component {
@@ -68,7 +68,7 @@ export default class TweetsModal extends React.Component {
             this.setModalVisible(true);
           }}
         >
-          <Text style={styles.tweets}>
+          <Text style={styles.tweets} numberOfLines={1} ellipsizeMode="head">
             {' '}
             {this.props.tweetCount}
             {' '}

@@ -1,9 +1,8 @@
 import React from 'react';
 import {
-  View, Text, TouchableHighlight, Image, ScrollView, ImageBackground
+  Text, ScrollView, ImageBackground
 } from 'react-native';
-import { List, ListItem } from 'react-native-elements';
-import styles from '../assets/stylesheet';
+import styles from '../../assets/stylesheet';
 
 
 const DisplayArticle = (props) => {

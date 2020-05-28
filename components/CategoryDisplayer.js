@@ -3,10 +3,9 @@ import axios from 'axios';
 import {
   View, Text, Image, TouchableOpacity
 } from 'react-native';
-import { Card, ListItem, Button } from 'react-native-elements';
+import { Card } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import styles from '../assets/stylesheet';
-import TweetsModal from './tweetsModal';
 
 
 export default class CategoryDisplayer extends React.Component {

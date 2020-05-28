@@ -1,13 +1,10 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import axios from 'axios';
-import CategoryDisplayer from '../components/CategoryDisplayer';
+import { LinearGradient } from 'expo-linear-gradient';
 import DisplayApps from '../components/DisplayApps';
 import styles from '../assets/stylesheet';
 import Header from '../components/Header';
-import { LinearGradient } from 'expo-linear-gradient';
 
 export default class AppsScreen extends React.Component {
   constructor(props) {

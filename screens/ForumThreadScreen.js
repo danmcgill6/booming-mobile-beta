@@ -2,14 +2,15 @@ import React from 'react';
 import {
   View, StyleSheet, ImageBackground, Text
 } from 'react-native';
+import axios from 'axios';
+import { Ionicons } from '@expo/vector-icons';
 
 import { connect } from 'react-redux';
-import { fetchForumApps } from '../redux/reducers/forum/actions';
 import Header from '../components/Header';
 import ForumList from '../components/Common/List';
 import { login } from '../redux';
-import { TOP_TEN_API_ENDPOINT } from '../constants';
 
+'';
 /**
    * can we make this work for all apss and single app?
    *
@@ -20,7 +21,7 @@ import { TOP_TEN_API_ENDPOINT } from '../constants';
    * 1. display the app names and number of questions asked within their forum page
    * 2. create search functionality, filter list based on search
    */
-class ForumScreen extends React.Component {
+class ForumThreadScreen extends React.Component {
   static navigationOptions = {
     headerTransparent: true,
     headerTintColor: '#fff',
@@ -40,12 +41,9 @@ class ForumScreen extends React.Component {
 
   constructor(props) {
     super(props);
-  }
-
-  async componentDidMount() {
-    const { dispatch } = this.props;
-    // eslint-disable-next-line react/destructuring-assignment
-    await this.props.fetchForumApps(TOP_TEN_API_ENDPOINT, dispatch);
+    this.state = {
+      topTen: []
+    };
   }
 
 
@@ -54,12 +52,17 @@ class ForumScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Header title="Forum" />
-        <ForumList data={props.forumApps} type="apps" navigation={props.navigation} />
+        <View style={styles.bannerContainer}>
+          <ImageBackground
+            style={styles.bannerImage}
+            source={require('../assets/images/appBanner.jpg')}
+          />
+        </View>
+        <ForumList type="apps" navigation={props.navigation} />
       </View>
     );
   }
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -115,17 +118,14 @@ const styles = StyleSheet.create({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchForumApps,
-  dispatch
+  setToken: token => dispatch(login(token))
 });
 
 const mapStateToProps = state => ({
-  forumApps: state.forum.forumApps,
-  user: state.user,
-  error: state.error
+  user: state.user
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ForumScreen);
+)(ForumThreadScreen);

@@ -1,8 +1,6 @@
 import React from 'react';
-import { ScrollView, StyleSheet, ImageBackground } from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
-import { View, Text } from 'react-native';
-import DisplayArticle from '../components/DisplayArticle';
+import { View } from 'react-native';
+import DisplayArticle from '../components/Article/DisplayArticle';
 import styles from '../assets/stylesheet';
 
 

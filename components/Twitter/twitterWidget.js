@@ -7,11 +7,10 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import { List, ListItem } from 'react-native-elements';
+import { ListItem } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
-import Dialog, { DialogContent } from 'react-native-popup-dialog';
-import styles from '../assets/stylesheet';
 import axios from 'axios';
+import styles from '../../assets/stylesheet';
 
 export default class TwitterWidget extends React.Component {
   constructor(props) {
@@ -31,13 +30,11 @@ export default class TwitterWidget extends React.Component {
     console.log(tweetData);
     const { description } = tweetData[0].user;
     const profileImageUrl = tweetData[0].user.profile_image_url_https;
-    const tweets = tweetData.map((data) => {
-      return {
-        tweet: data.text,
-        createdAt: data.created_at,
-        profileImage: data.user.profile_image_url_https,
-      };
-    });
+    const tweets = tweetData.map(data => ({
+      tweet: data.text,
+      createdAt: data.created_at,
+      profileImage: data.user.profile_image_url_https,
+    }));
 
     this.setState({ tweets, description, profileImageUrl });
   }

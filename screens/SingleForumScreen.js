@@ -7,9 +7,9 @@ import axios from 'axios';
 import { Ionicons } from '@expo/vector-icons';
 
 import { connect } from 'react-redux';
-import Header from '../components/Header';
 import { login } from '../redux';
-import ForumList from '../components/ForumList';
+import ForumList from '../components/Common/List';
+import Header from '../components/Header';
 
 
 class SingleForumScreen extends React.Component {
@@ -46,26 +46,43 @@ class SingleForumScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      appTitle: ''
+      posts: []
     };
+  }
+
+  async getPosts(appTitle) {
+    const getPostsResponse = await axios.get(`https://6hqudqyuu6.execute-api.us-east-2.amazonaws.com/develop/forum?appTitle=${appTitle}`);
+    const posts = getPostsResponse.data;
+    console.log('Response data', posts);
+    return posts;
+  }
+
+  async componentDidMount() {
+    console.log('single forum props', this.props);
+    const { app } = this.props.navigation.state.params;
+    const { title } = app;
+    const posts = await this.getPosts(title);
+    this.setState({ posts });
   }
 
 
   render() {
-    console.log('SingleFoScreenProps', this.props);
     const { navigation } = this.props;
+    const { posts } = this.state;
     return (
       <View style={styles.container}>
-        <View style={styles.bannerContainer}>
+        <Header title="Angry Birds" />
+
+        {/* <View style={styles.bannerContainer}>
           <ImageBackground
             style={styles.bannerImage}
             source={require('../assets/images/appBanner.jpg')}
           >
-            <Text>Hello World</Text>
+            <Text>Loading...</Text>
           </ImageBackground>
-        </View>
+        </View> */}
         <View style={styles.questions}>
-          <ForumList type="posts" appTitle="Gacha Life " navigation={navigation} />
+          <ForumList data={posts} type="posts" title="Gacha Life" navigation={navigation} />
         </View>
       </View>
     );
@@ -93,11 +110,11 @@ const styles = StyleSheet.create({
     right: 76
   },
   bannerContainer: {
-    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     borderColor: 'black',
     borderWidth: 1,
+    height: 200
   },
   questions: {
     borderColor: 'black',
