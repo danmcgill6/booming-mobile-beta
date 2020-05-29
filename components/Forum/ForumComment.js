@@ -102,8 +102,8 @@ export default class ForumComment extends React.Component {
           }}
         >
           <View style={styles.commentButton}>
-            <Ionicons name="ios-add-circle-outline" size={45} color="black" />
-            <Text> Add a Reply</Text>
+            <Ionicons name="ios-add-circle-outline" size={45} color="white" />
+            <Text style={{ color: 'white' }}> Add a Reply</Text>
           </View>
         </TouchableHighlight>
       </View>

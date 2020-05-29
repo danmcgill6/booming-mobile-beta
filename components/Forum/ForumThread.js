@@ -85,11 +85,17 @@ class ForumThread extends React.Component {
   renderComments() {
     const { likes, question, forumComments } = this.props;
     console.log('forumComments', forumComments);
-    return forumComments.map((comment) => {
+    return forumComments.map((comment, i) => {
+      console.log('FUCKKKKk', comment);
       const app = comment.appTitle;
       const post = comment.comment;
       return (
-        <View style={styles.forumThreadCommentContainer}>
+        <View style={
+          {
+            ...styles.forumThreadCommentContainer,
+            backgroundColor: i % 2 === 0 ? '#f5f4f0' : '23aa8f'
+          }}
+        >
           <Image
             style={styles.avatar}
             source={require('../../assets/images/user.png')}
@@ -97,20 +103,22 @@ class ForumThread extends React.Component {
           <View>
             <TextInput
               editable={false}
-              style={styles.forumThreadComment}
-              value={question}
+              style={
+                styles.forumThreadComment
+              }
+              value={post}
               multiline
             />
-            <TouchableHighlight
-              style={styles.likeCommentButton}
-              onPress={() => this.onCommmentLikeClick(comment.id)}
-            >
-              <View style={styles.upButtonContainer}>
-                <Ionicons name="ios-arrow-up" size={25} color="green" />
-                <Text style={{ color: 'white' }}>{comment.likes || 0}</Text>
-              </View>
-            </TouchableHighlight>
           </View>
+          <TouchableHighlight
+            style={styles.likeCommentButton}
+            onPress={() => this.onCommmentLikeClick(comment.id)}
+          >
+            <View style={styles.upButtonContainer}>
+              <Ionicons name="ios-arrow-up" size={25} color="#4d16b5" />
+              <Text style={{ color: 'black' }}>{comment.likes || 0}</Text>
+            </View>
+          </TouchableHighlight>
         </View>
       );
     });
@@ -121,14 +129,14 @@ class ForumThread extends React.Component {
     return (
       <View style={{ flexDirection: 'column' }}>
         <View style={{ flexDirection: 'row' }}>
-          <Text style={{ fontSize: 28, color: 'white' }}>{title}</Text>
+          <Text style={{ fontSize: 25, color: 'black', paddingLeft: 15 }}>{title}</Text>
           <TouchableHighlight
             style={styles.likeCommentButton}
             onPress={() => this.onCommmentLikeClick(comment.id)}
           >
             <View style={styles.upButtonContainer}>
-              <Ionicons name="ios-arrow-up" size={25} color="green" />
-              <Text style={{ color: 'white' }}>{likes || 0}</Text>
+              <Ionicons name="ios-arrow-up" size={25} color="#4d16b5" />
+              <Text style={{ color: 'black' }}>{likes || 0}</Text>
             </View>
           </TouchableHighlight>
         </View>
@@ -170,7 +178,7 @@ class ForumThread extends React.Component {
               this.setModalVisible(!this.state.modalVisible);
             }}
           >
-            <Ionicons name="ios-arrow-back" size={24} color="black" />
+            <Ionicons name="ios-arrow-back" size={24} color="white" />
           </TouchableHighlight>
           <View style={styles.forumThreadContentContainer}>
             <ScrollView contentContainerStyle={{ alignItems: 'center' }}>
@@ -180,15 +188,6 @@ class ForumThread extends React.Component {
           </View>
           <View>
             <View style={styles.forumThreadBottomBar}>
-              <TouchableHighlight
-                style={styles.likeQuestionButton}
-                onPress={this.onLikeClick}
-              >
-                <View>
-                  <Ionicons name="ios-thumbs-up" size={45} color="black" />
-                  <Text>Like This Post</Text>
-                </View>
-              </TouchableHighlight>
               <ForumComment app={app} question={question} postId={id} />
             </View>
           </View>
@@ -207,7 +206,7 @@ class ForumThread extends React.Component {
                 style={styles.iosArrow}
                 name="ios-arrow-forward"
                 size={24}
-                color="black"
+                color="#4d16b5"
               />
             </View>
           </View>

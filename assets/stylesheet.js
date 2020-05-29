@@ -244,7 +244,6 @@ const styles = StyleSheet.create({
     right: 10
   },
   upButtonContainer: {
-    justifyContent: 'center',
     alignItems: 'center'
   },
 
@@ -300,7 +299,6 @@ const styles = StyleSheet.create({
   forumThreadQuestion: {
     alignSelf: 'center',
     borderColor: '#23aa8f',
-    borderBottomWidth: 1,
     backgroundColor: 'white',
     color: 'black',
     minHeight: 50,
@@ -316,9 +314,6 @@ const styles = StyleSheet.create({
   },
   forumThreadComment: {
     alignSelf: 'center',
-    borderColor: '#23aa8f',
-    borderBottomWidth: 1,
-    backgroundColor: 'white',
     color: 'black',
     minHeight: 50,
     maxWidth: 250,
@@ -328,7 +323,7 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
     paddingLeft: 5,
     paddingRight: 5,
-    marginTop: 25,
+    marginTop: 5,
     marginLeft: 10,
     borderBottomLeftRadius: 15,
     borderBottomRightRadius: 15,
@@ -345,11 +340,10 @@ const styles = StyleSheet.create({
   },
 
   commentButton: {
-    position: 'absolute',
     alignItems: 'center',
     justifyContent: 'center',
-    right: 15,
-    top: 10
+    color: 'white',
+
   },
   likeQuestionButton: {
     alignItems: 'center',
@@ -358,28 +352,31 @@ const styles = StyleSheet.create({
     left: 15,
     top: 10
   },
+  forumThreadBottomBar: {
+    backgroundColor: '#4d16b5',
+    height: 100
+  },
 
   forumThreadQuestionContainer: {
     flexDirection: 'row',
     minHeight: 100,
     marginBottom: 25,
-    borderBottomColor: '#23aa8f',
     borderBottomWidth: 3,
+    borderColor: 'grey',
     paddingBottom: 20
   },
   forumThreadCommentContainer: {
     flexDirection: 'row',
     width: '100%',
-    minHeight: 100,
-    marginBottom: 25,
-    borderBottomColor: '#23aa8f',
-    borderBottomWidth: 3,
-    paddingBottom: 20
+    minHeight: 75,
+    paddingBottom: 10,
+    paddingTop: 10
   },
 
   avatar: {
     width: 50,
-    height: 50
+    height: 50,
+    alignSelf: 'center'
   },
 
   forumThreadContentContainer: {
@@ -387,14 +384,14 @@ const styles = StyleSheet.create({
     paddingTop: 75,
     justifyContent: 'flex-start',
     // alignItems: 'center',
-    backgroundColor: '#272b28',
-    marginBottom: 85
+    backgroundColor: 'white',
+
   },
 
   likeCommentButton: {
     position: 'absolute',
-    right: -35,
-    top: 25
+    right: 15,
+    top: 10
   },
 
 
