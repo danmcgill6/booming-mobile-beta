@@ -1,5 +1,5 @@
-import React from 'react';
-import axios from 'axios';
+import React from "react";
+import axios from "axios";
 import {
   View,
   Text,
@@ -10,25 +10,27 @@ import {
   TextInput,
   StyleSheet,
   Dimensions,
-  ActivityIndicator
-} from 'react-native';
-import { connect } from 'react-redux';
+  ActivityIndicator,
+} from "react-native";
+import { connect } from "react-redux";
 
-import { Ionicons } from '@expo/vector-icons';
-import { LinearGradient } from 'expo-linear-gradient';
+import { Ionicons } from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
 
 import {
   FORUM_COMMENTS_BASE_URL,
   FORUM_LIKE_BASE_URL,
   FORUM_BASE_URL,
-} from '../../constants';
-import { fetchForumComments, updateForumComments, } from '../../redux/reducers/forum/actions';
+} from "../../constants";
+import {
+  fetchForumComments,
+  updateForumComments,
+} from "../../redux/reducers/forum/actions";
 
+import styles from "../../assets/stylesheet";
+import ForumReply from "./Forum";
 
-import styles from '../../assets/stylesheet';
-import ForumComment from './ForumComment';
-
-class ForumThread extends React.Component {
+class ForumQuestion extends React.Component {
   constructor(props) {
     super(props);
 
@@ -48,7 +50,9 @@ class ForumThread extends React.Component {
     if (!prevState.modalVisible && this.state.modalVisible) {
       const { id, dispatch } = this.props;
       const url = `${FORUM_COMMENTS_BASE_URL}?postId=${id}`;
-      this.props.fetchForumComments({ url, dispatch }).then(_ => this.setState({ loading: false }));
+      this.props
+        .fetchForumComments({ url, dispatch })
+        .then((_) => this.setState({ loading: false }));
     }
   }
 
@@ -66,7 +70,7 @@ class ForumThread extends React.Component {
     this.props.updateForumComments({
       url,
       dispatch,
-      reduxData: updatedComments
+      reduxData: updatedComments,
     });
   }
 
@@ -84,28 +88,25 @@ class ForumThread extends React.Component {
 
   renderComments() {
     const { likes, question, forumComments } = this.props;
-    console.log('forumComments', forumComments);
+    console.log("forumComments", forumComments);
     return forumComments.map((comment, i) => {
-      console.log('FUCKKKKk', comment);
       const app = comment.appTitle;
       const post = comment.comment;
       return (
-        <View style={
-          {
+        <View
+          style={{
             ...styles.forumThreadCommentContainer,
-            backgroundColor: i % 2 === 0 ? '#f5f4f0' : '23aa8f'
+            backgroundColor: i % 2 === 0 ? "#f5f4f0" : "23aa8f",
           }}
         >
           <Image
             style={styles.avatar}
-            source={require('../../assets/images/user.png')}
+            source={require("../../assets/images/user.png")}
           />
           <View>
             <TextInput
               editable={false}
-              style={
-                styles.forumThreadComment
-              }
+              style={styles.forumThreadComment}
               value={post}
               multiline
             />
@@ -116,7 +117,7 @@ class ForumThread extends React.Component {
           >
             <View style={styles.upButtonContainer}>
               <Ionicons name="ios-arrow-up" size={25} color="#4d16b5" />
-              <Text style={{ color: 'black' }}>{comment.likes || 0}</Text>
+              <Text style={{ color: "black" }}>{comment.likes || 0}</Text>
             </View>
           </TouchableHighlight>
         </View>
@@ -127,16 +128,18 @@ class ForumThread extends React.Component {
   renderQuestion() {
     const { post, likes, title } = this.props;
     return (
-      <View style={{ flexDirection: 'column' }}>
-        <View style={{ flexDirection: 'row' }}>
-          <Text style={{ fontSize: 25, color: 'black', paddingLeft: 15 }}>{title}</Text>
+      <View style={{ flexDirection: "column" }}>
+        <View style={{ flexDirection: "row" }}>
+          <Text style={{ fontSize: 25, color: "black", paddingLeft: 15 }}>
+            {title}
+          </Text>
           <TouchableHighlight
             style={styles.likeCommentButton}
             onPress={() => this.onCommmentLikeClick(comment.id)}
           >
             <View style={styles.upButtonContainer}>
               <Ionicons name="ios-arrow-up" size={25} color="#4d16b5" />
-              <Text style={{ color: 'black' }}>{likes || 0}</Text>
+              <Text style={{ color: "black" }}>{likes || 0}</Text>
             </View>
           </TouchableHighlight>
         </View>
@@ -154,9 +157,7 @@ class ForumThread extends React.Component {
   }
 
   render() {
-    const {
-      title, likes, app, question, id
-    } = this.props;
+    const { title, likes, app, question, id } = this.props;
 
     return (
       <View>
@@ -181,14 +182,14 @@ class ForumThread extends React.Component {
             <Ionicons name="ios-arrow-back" size={24} color="white" />
           </TouchableHighlight>
           <View style={styles.forumThreadContentContainer}>
-            <ScrollView contentContainerStyle={{ alignItems: 'center' }}>
+            <ScrollView contentContainerStyle={{ alignItems: "center" }}>
               {this.renderQuestion()}
               {this.renderComments()}
             </ScrollView>
           </View>
           <View>
             <View style={styles.forumThreadBottomBar}>
-              <ForumComment app={app} question={question} postId={id} />
+              <ForumReply app={app} question={question} postId={id} />
             </View>
           </View>
         </Modal>
@@ -219,15 +220,15 @@ class ForumThread extends React.Component {
 const localStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: "white",
   },
   itemText: {
     fontSize: 18,
-    alignSelf: 'center',
+    alignSelf: "center",
   },
   postNumber: {
-    alignSelf: 'center',
-    position: 'absolute',
+    alignSelf: "center",
+    position: "absolute",
     right: 76,
   },
   itemContainer: {
@@ -235,9 +236,9 @@ const localStyles = StyleSheet.create({
     paddingTop: 15,
     paddingBottom: 15,
     paddingLeft: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderBottomColor: 'black',
+    flexDirection: "row",
+    alignItems: "center",
+    borderBottomColor: "black",
     borderBottomWidth: 1,
   },
   itemContainer2: {
@@ -251,29 +252,26 @@ const localStyles = StyleSheet.create({
     height: 50,
     width: 50,
     marginRight: 10,
-    borderColor: 'white',
+    borderColor: "white",
     borderWidth: 1,
     borderRadius: 10,
   },
   iosArrow: {
-    position: 'absolute',
+    position: "absolute",
     right: 10,
   },
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   fetchForumComments,
   updateForumComments,
-  dispatch
+  dispatch,
 });
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   forumComments: state.forum.forumComments,
   user: state.user,
-  error: state.error
+  error: state.error,
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ForumThread);
+export default connect(mapStateToProps, mapDispatchToProps)(ForumQuestion);

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { reduxForm, Field } from 'redux-form';
+import React, { useState } from "react";
+import axios from "axios";
+import { reduxForm, Field } from "redux-form";
 
 import {
   View,
@@ -9,9 +9,9 @@ import {
   Modal,
   TextInput,
   TouchableOpacity,
-} from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import styles from '../../assets/stylesheet';
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import styles from "../../assets/stylesheet";
 
 async function submitPost(setter) {
   try {
@@ -19,35 +19,34 @@ async function submitPost(setter) {
     const { title } = this.state;
 
     if (!title.length) {
-      setter('Please provide a title for your post');
+      setter("Please provide a title for your post");
       return;
     }
 
     if (!question.length) {
-      setter('Please provide a question for your post');
+      setter("Please provide a question for your post");
       return;
     }
 
     await axios.post(
-      'https://6hqudqyuu6.execute-api.us-east-2.amazonaws.com/develop/forum',
+      "https://6hqudqyuu6.execute-api.us-east-2.amazonaws.com/develop/forum",
       {
         post: question,
         title,
-        appTitle: 'Gacha Life',
-        userName: 'Test',
+        appTitle: "Gacha Life",
+        userName: "Test",
       }
     );
   } catch (error) {
-    console.log('ERROR', error);
-    setter('Oops! Something went wrong.');
+    console.log("ERROR", error);
+    setter("Oops! Something went wrong.");
   }
 }
 
-
-const ForumPost = (props) => {
-  const [title, setTitle] = useState('');
-  const [question, setQuestion] = useState('');
-  const [errorText, seterrorText] = useState('');
+const ForumReply = (props) => {
+  const [title, setTitle] = useState("");
+  const [question, setQuestion] = useState("");
+  const [errorText, seterrorText] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -71,14 +70,14 @@ const ForumPost = (props) => {
             <Text style={styles.forumPostTitle}> Title </Text>
             <TextInput
               style={styles.titleInput}
-              onChangeText={text => setTitle(text)}
+              onChangeText={(text) => setTitle(text)}
               value={title}
               placeholder="Ex. How do you pass level 9 ? "
             />
             <Text style={styles.forumPostTitle}> Question </Text>
             <TextInput
               style={styles.questionInput}
-              onChangeText={text => setQuestion(text)}
+              onChangeText={(text) => setQuestion(text)}
               value={question}
               placeholder="Put your question here"
               multiline
@@ -90,9 +89,7 @@ const ForumPost = (props) => {
             >
               <Text style={styles.forumPostSubmitText}>Submit</Text>
             </TouchableOpacity>
-            <Text style={styles.forumPostErrortText}>
-              {errorText}
-            </Text>
+            <Text style={styles.forumPostErrortText}>{errorText}</Text>
           </View>
         </View>
       </Modal>
@@ -108,5 +105,4 @@ const ForumPost = (props) => {
   );
 };
 
-
-export default reduxForm({ form: 'ForumPost' })(ForumPost);
+export default reduxForm({ form: "ForumReply" })(ForumReply);

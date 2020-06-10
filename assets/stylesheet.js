@@ -336,10 +336,11 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     height: 85,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
 
   commentButton: {
+    marginTop: 5,
     alignItems: 'center',
     justifyContent: 'center',
     color: 'white',
@@ -354,7 +355,12 @@ const styles = StyleSheet.create({
   },
   forumThreadBottomBar: {
     backgroundColor: '#4d16b5',
-    height: 100
+    height: 100,
+    position: 'absolute',
+    left: 0,
+    bottom: 0,
+    borderTopRightRadius: 15,
+    width: 100
   },
 
   forumThreadQuestionContainer: {
