@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import styles from "../../assets/stylesheet";
+import { THEME_COLOR_ONE } from "../../constants";
 
 export default class ForumReply extends React.Component {
   constructor(props) {
@@ -32,7 +33,6 @@ export default class ForumReply extends React.Component {
     try {
       const { comment } = this.state;
       const { app, postId } = this.props;
-
       if (!comment.length) {
         this.setState({ errorText: "Please provide a question for your post" });
         return;
@@ -48,6 +48,7 @@ export default class ForumReply extends React.Component {
           postId,
         }
       );
+      this.setModalVisible(false);
     } catch (error) {
       console.log("ERROR", error);
       this.setState({ errorText: "Oops! Something went wrong. " });
@@ -55,7 +56,7 @@ export default class ForumReply extends React.Component {
   }
 
   render() {
-    const { question } = this.props;
+    const { title } = this.props;
     return (
       <View>
         <Modal
@@ -64,28 +65,33 @@ export default class ForumReply extends React.Component {
           visible={this.state.modalVisible}
           onRequestClose={() => {}}
         >
-          <TouchableHighlight
+          <TouchableOpacity
+            activeOpacity={0.3}
             style={styles.twitDisplayerBackButton}
             onPress={() => {
               this.setModalVisible(!this.state.modalVisible);
             }}
           >
-            <Ionicons name="ios-arrow-back" size={24} color="black" />
-          </TouchableHighlight>
+            <Ionicons name="ios-arrow-back" size={24} color={THEME_COLOR_ONE} />
+          </TouchableOpacity>
+
           <View style={styles.forumInputContainer}>
+            <Text style={{ fontSize: 25, color: "black", paddingLeft: 15 }}>
+              {title}
+            </Text>
             <View>
-              <Text style={styles.forumPostTitle}> Reply </Text>
+              <Text style={styles.forumPostTitle}> </Text>
               <TextInput
                 style={styles.questionInput}
                 onChangeText={(text) => this.setState({ comment: text })}
                 value={this.state.reply}
-                placeholder="Put your question here"
+                placeholder="Lets here your reply"
                 multiline
               />
               <TouchableOpacity
                 style={styles.forumPostSubmit}
                 onPress={this.submitResponse}
-                underlayColor="#fff"
+                underlayColor={THEME_COLOR_ONE}
               >
                 <Text style={styles.forumPostSubmitText}>Submit</Text>
               </TouchableOpacity>

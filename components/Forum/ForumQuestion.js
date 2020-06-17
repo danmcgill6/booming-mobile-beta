@@ -11,6 +11,7 @@ import {
   StyleSheet,
   Dimensions,
   ActivityIndicator,
+  TouchableOpacity,
 } from "react-native";
 import { connect } from "react-redux";
 
@@ -29,6 +30,7 @@ import {
 
 import styles from "../../assets/stylesheet";
 import ForumReply from "./Forum";
+import { THEME_COLOR_ONE } from "../../constants";
 
 class ForumQuestion extends React.Component {
   constructor(props) {
@@ -111,7 +113,8 @@ class ForumQuestion extends React.Component {
               multiline
             />
           </View>
-          <TouchableHighlight
+          <TouchableOpacity
+            activeOpacity={0.3}
             style={styles.likeCommentButton}
             onPress={() => this.onCommmentLikeClick(comment.id)}
           >
@@ -119,7 +122,7 @@ class ForumQuestion extends React.Component {
               <Ionicons name="ios-arrow-up" size={25} color="#4d16b5" />
               <Text style={{ color: "black" }}>{comment.likes || 0}</Text>
             </View>
-          </TouchableHighlight>
+          </TouchableOpacity>
         </View>
       );
     });
@@ -133,7 +136,8 @@ class ForumQuestion extends React.Component {
           <Text style={{ fontSize: 25, color: "black", paddingLeft: 15 }}>
             {title}
           </Text>
-          <TouchableHighlight
+          <TouchableOpacity
+            activeOpacity={0.3}
             style={styles.likeCommentButton}
             onPress={() => this.onCommmentLikeClick(comment.id)}
           >
@@ -141,7 +145,7 @@ class ForumQuestion extends React.Component {
               <Ionicons name="ios-arrow-up" size={25} color="#4d16b5" />
               <Text style={{ color: "black" }}>{likes || 0}</Text>
             </View>
-          </TouchableHighlight>
+          </TouchableOpacity>
         </View>
 
         <View style={styles.forumThreadQuestionContainer}>
@@ -179,7 +183,7 @@ class ForumQuestion extends React.Component {
               this.setModalVisible(!this.state.modalVisible);
             }}
           >
-            <Ionicons name="ios-arrow-back" size={24} color="white" />
+            <Ionicons name="ios-arrow-back" size={24} color={THEME_COLOR_ONE} />
           </TouchableHighlight>
           <View style={styles.forumThreadContentContainer}>
             <ScrollView contentContainerStyle={{ alignItems: "center" }}>
@@ -189,7 +193,7 @@ class ForumQuestion extends React.Component {
           </View>
           <View>
             <View style={styles.forumThreadBottomBar}>
-              <ForumReply app={app} question={question} postId={id} />
+              <ForumReply app={app} title={title} postId={id} />
             </View>
           </View>
         </Modal>
