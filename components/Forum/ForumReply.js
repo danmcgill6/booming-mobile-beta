@@ -1,108 +1,118 @@
-// import React, { useState } from "react";
-// import axios from "axios";
-// import { reduxForm, Field } from "redux-form";
+import React from "react";
+import axios from "axios";
+import {
+  View,
+  Text,
+  TouchableHighlight,
+  Modal,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import styles from "../../assets/stylesheet";
+import { THEME_COLOR_ONE } from "../../constants";
 
-// import {
-//   View,
-//   Text,
-//   TouchableHighlight,
-//   Modal,
-//   TextInput,
-//   TouchableOpacity,
-// } from "react-native";
-// import { Ionicons } from "@expo/vector-icons";
-// import styles from "../../assets/stylesheet";
+export default class ForumReply extends React.Component {
+  constructor(props) {
+    super(props);
 
-// async function submitPost(setter) {
-//   try {
-//     const { question } = this.state;
-//     const { title } = this.state;
+    this.state = {
+      modalVisible: false,
+      comment: "",
+      errorText: "",
+    };
 
-//     if (!title.length) {
-//       setter("Please provide a title for your post");
-//       return;
-//     }
+    this.submitResponse = this.submitResponse.bind(this);
+  }
 
-//     if (!question.length) {
-//       setter("Please provide a question for your post");
-//       return;
-//     }
+  async setModalVisible(visible) {
+    this.setState({ modalVisible: visible });
+  }
 
-//     await axios.post(
-//       "https://6hqudqyuu6.execute-api.us-east-2.amazonaws.com/develop/forum",
-//       {
-//         post: question,
-//         title,
-//         appTitle: "Gacha Life",
-//         userName: "Test",
-//       }
-//     );
-//   } catch (error) {
-//     console.log("ERROR", error);
-//     setter("Oops! Something went wrong.");
-//   }
-// }
+  async submitResponse() {
+    try {
+      const { comment } = this.state;
+      const { app, postId } = this.props;
+      if (!comment.length) {
+        this.setState({ errorText: "Please provide a question for your post" });
+        return;
+      }
 
-// const ForumReply = (props) => {
-//   const [title, setTitle] = useState("");
-//   const [question, setQuestion] = useState("");
-//   const [errorText, seterrorText] = useState("");
-//   const [modalVisible, setModalVisible] = useState(false);
+      await axios.post(
+        "https://6hqudqyuu6.execute-api.us-east-2.amazonaws.com/develop/forum/comments",
+        {
+          comment,
+          appTitle: app,
+          // TODO: make this a real username
+          userName: "Test",
+          postId,
+        }
+      );
+      this.setModalVisible(false);
+    } catch (error) {
+      console.log("ERROR", error);
+      this.setState({ errorText: "Oops! Something went wrong. " });
+    }
+  }
 
-//   return (
-//     <View>
-//       <Modal
-//         animationType="slide"
-//         transparent={false}
-//         visible={modalVisible}
-//         onRequestClose={() => {}}
-//       >
-//         <TouchableHighlight
-//           style={styles.twitDisplayerBackButton}
-//           onPress={() => {
-//             setModalVisible(setModalVisible, !modalVisible);
-//           }}
-//         >
-//           <Ionicons name="ios-arrow-back" size={24} color="black" />
-//         </TouchableHighlight>
-//         <View style={styles.forumInputContainer}>
-//           <View>
-//             <Text style={styles.forumPostTitle}> Title </Text>
-//             <TextInput
-//               style={styles.titleInput}
-//               onChangeText={(text) => setTitle(text)}
-//               value={title}
-//               placeholder="Ex. How do you pass level 9 ? "
-//             />
-//             <Text style={styles.forumPostTitle}> Question </Text>
-//             <TextInput
-//               style={styles.questionInput}
-//               onChangeText={(text) => setQuestion(text)}
-//               value={question}
-//               placeholder="Put your question here"
-//               multiline
-//             />
-//             <TouchableOpacity
-//               style={styles.forumPostSubmit}
-//               onPress={() => submitPost(seterrorText)}
-//               underlayColor="#fff"
-//             >
-//               <Text style={styles.forumPostSubmitText}>Submit</Text>
-//             </TouchableOpacity>
-//             <Text style={styles.forumPostErrortText}>{errorText}</Text>
-//           </View>
-//         </View>
-//       </Modal>
+  render() {
+    const { title } = this.props;
+    return (
+      <View>
+        <Modal
+          animationType="slide"
+          transparent={false}
+          visible={this.state.modalVisible}
+          onRequestClose={() => {}}
+        >
+          <TouchableOpacity
+            activeOpacity={0.3}
+            style={styles.twitDisplayerBackButton}
+            onPress={() => {
+              this.setModalVisible(!this.state.modalVisible);
+            }}
+          >
+            <Ionicons name="ios-arrow-back" size={24} color={THEME_COLOR_ONE} />
+          </TouchableOpacity>
 
-//       <TouchableHighlight
-//         onPress={() => {
-//           setModalVisible(true);
-//         }}
-//       >
-//         <Ionicons name="ios-add" size={40} color="black" />
-//       </TouchableHighlight>
-//     </View>
-//   );
-// };
+          <View style={styles.forumInputContainer}>
+            <Text style={{ fontSize: 25, color: "black", paddingLeft: 15 }}>
+              {title}
+            </Text>
+            <View>
+              <Text style={styles.forumPostTitle}> </Text>
+              <TextInput
+                style={styles.questionInput}
+                onChangeText={(text) => this.setState({ comment: text })}
+                value={this.state.reply}
+                placeholder="Lets here your reply"
+                multiline
+              />
+              <TouchableOpacity
+                style={styles.forumPostSubmit}
+                onPress={this.submitResponse}
+                underlayColor={THEME_COLOR_ONE}
+              >
+                <Text style={styles.forumPostSubmitText}>Submit</Text>
+              </TouchableOpacity>
+              <Text style={styles.forumPostErrortText}>
+                {this.state.errorText}
+              </Text>
+            </View>
+          </View>
+        </Modal>
 
-// export default reduxForm({ form: "ForumReply" })(ForumReply);
+        <TouchableHighlight
+          onPress={() => {
+            this.setModalVisible(true);
+          }}
+        >
+          <View style={styles.commentButton}>
+            <Ionicons name="ios-add-circle-outline" size={45} color="white" />
+            <Text style={{ color: "white" }}> Add a Reply</Text>
+          </View>
+        </TouchableHighlight>
+      </View>
+    );
+  }
+}
