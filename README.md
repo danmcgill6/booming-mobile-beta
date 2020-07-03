@@ -1,4 +1,4 @@
-![alt text](https://github.com/danmcgill6/booming-mobile-beta/blob/master/assets/images/FullColor_1280x1024.svg)
+![alt text](https://github.com/danmcgill6/booming-mobile-beta/blob/master/assets/images/FullColor_1280x1024.svg?s=200)
 
 # Booming Apps frontend repository
 
